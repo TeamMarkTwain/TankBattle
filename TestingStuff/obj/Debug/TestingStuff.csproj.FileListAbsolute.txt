@@ -1,0 +1,9 @@
+c:\users\slavi\documents\visual studio 2013\Projects\TestingStuff\TestingStuff\bin\Debug\TestingStuff.exe.config
+c:\users\slavi\documents\visual studio 2013\Projects\TestingStuff\TestingStuff\bin\Debug\TestingStuff.exe
+c:\users\slavi\documents\visual studio 2013\Projects\TestingStuff\TestingStuff\bin\Debug\TestingStuff.pdb
+c:\users\slavi\documents\visual studio 2013\Projects\TestingStuff\TestingStuff\obj\Debug\TestingStuff.csprojResolveAssemblyReference.cache
+c:\users\slavi\documents\visual studio 2013\Projects\TestingStuff\TestingStuff\obj\Debug\TestingStuff.exe
+c:\users\slavi\documents\visual studio 2013\Projects\TestingStuff\TestingStuff\obj\Debug\TestingStuff.pdb
+E:\Telerik Academy\2.C#\4. C# OOP\3.Teamwork\TestingStuff\TestingStuff\bin\Debug\TestingStuff.exe.config
+E:\Telerik Academy\2.C#\4. C# OOP\3.Teamwork\TestingStuff\TestingStuff\obj\Debug\TestingStuff.exe
+E:\Telerik Academy\2.C#\4. C# OOP\3.Teamwork\TestingStuff\TestingStuff\obj\Debug\TestingStuff.pdb
