@@ -48,6 +48,7 @@
     <Compile Include="Directions.cs" />
     <Compile Include="Engine.cs" />
     <Compile Include="Interfaces\IDestroyable.cs" />
+    <Compile Include="Interfaces\IHitable.cs" />
     <Compile Include="Interfaces\IMoveable.cs" />
     <Compile Include="Interfaces\IPrintable.cs" />
     <Compile Include="Level.cs" />
