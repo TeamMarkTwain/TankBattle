@@ -151,14 +151,26 @@ namespace TankBattle
                         else
                         {
                             ConsoleAction.Clear(this.X, this.Y, 3, 3);
+
+                            if (this.Direction == Directions.Right && (this.x % 6) > 1)
+                            {
+                                this.x = this.x - (this.x % 6) + 1;
+                            }
+
+                            else if (this.Direction == Directions.Left && (this.x % 6) > 1 && this.x % 6 < 5)
+                            {
+                                this.x = this.x - (this.x % 6) + 1;
+                            }
                         }
 
                         this.Direction = Directions.Up;
                         this.Print();
                     }
-
-                    Console.MoveBufferArea(this.X, this.Y, 6, 2, this.X, this.Y - 1);
-                    this.Y--;
+                    else
+                    {
+                        Console.MoveBufferArea(this.X, this.Y, 6, 2, this.X, this.Y - 1);
+                        this.Y--;
+                    }
                 }
             }
             #endregion
@@ -175,13 +187,26 @@ namespace TankBattle
                 {
                     if (this.Direction != Directions.Left)
                     {
-                        if (this.Direction == Directions.Up || this.Direction == Directions.Down)
+                        if (this.Direction == Directions.Right)
                         {
-                            ConsoleAction.Clear(this.X, this.Y, 6, 2);
+                            ConsoleAction.Clear(this.X, this.Y, 3, 3);
                         }
                         else
                         {
-                            ConsoleAction.Clear(this.X, this.Y, 3, 3);
+                            ConsoleAction.Clear(this.X, this.Y, 6, 2);
+                            this.x++;
+
+                            if (this.Direction == Directions.Down)
+                            {
+                                if (y % 3 != 1)
+                                {
+                                    y--;
+                                }
+                            }
+                            else if (this.Direction == Directions.Up && this.y % 3 == 2)
+                            {
+                                this.y--;
+                            }
                         }
 
                         this.Direction = Directions.Left;
@@ -213,6 +238,18 @@ namespace TankBattle
                         else
                         {
                             ConsoleAction.Clear(this.X, this.Y, 6, 2);
+
+                            if (this.Direction == Directions.Down)
+                            {
+                                if (y % 3 != 1)
+                                {
+                                    y--;
+                                }
+                            }
+                            else if (this.Direction == Directions.Up && this.y % 3 == 2)
+                            {
+                                this.y--;
+                            }
                         }
 
                         this.Direction = Directions.Right;
@@ -245,6 +282,15 @@ namespace TankBattle
                         else
                         {
                             ConsoleAction.Clear(this.X, this.Y, 3, 3);
+
+                            if (this.Direction == Directions.Right && (this.x % 6) > 1)
+                            {
+                                this.x = this.x - (this.x % 6) + 1;
+                            }
+                            else if (this.Direction == Directions.Left && (this.x % 6) > 1 && this.x % 6 < 5)
+                            {
+                                this.x = this.x - (this.x % 6) + 1;
+                            }
                         }
 
                         this.Direction = Directions.Down;
