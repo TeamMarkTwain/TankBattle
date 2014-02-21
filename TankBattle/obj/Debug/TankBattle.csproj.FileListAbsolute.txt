@@ -1,0 +1,6 @@
+E:\Telerik Academy\2.C#\4. C# OOP\3.Teamwork\Tryout\TankBattle\TankBattle\bin\Debug\TankBattle.exe.config
+E:\Telerik Academy\2.C#\4. C# OOP\3.Teamwork\Tryout\TankBattle\TankBattle\bin\Debug\TankBattle.exe
+E:\Telerik Academy\2.C#\4. C# OOP\3.Teamwork\Tryout\TankBattle\TankBattle\bin\Debug\TankBattle.pdb
+E:\Telerik Academy\2.C#\4. C# OOP\3.Teamwork\Tryout\TankBattle\TankBattle\obj\Debug\TankBattle.csprojResolveAssemblyReference.cache
+E:\Telerik Academy\2.C#\4. C# OOP\3.Teamwork\Tryout\TankBattle\TankBattle\obj\Debug\TankBattle.exe
+E:\Telerik Academy\2.C#\4. C# OOP\3.Teamwork\Tryout\TankBattle\TankBattle\obj\Debug\TankBattle.pdb
