@@ -28,3 +28,9 @@ E:\Telerik Academy\2.C#\4. C# OOP\3.Teamwork\TankBattle\obj\Debug\TankBattle.pdb
 E:\Telerik Academy\2.C#\4. C# OOP\3.Teamwork\TankBattle\bin\Debug\TankBattle.exe
 E:\Telerik Academy\2.C#\4. C# OOP\3.Teamwork\TankBattle\bin\Debug\TankBattle.pdb
 E:\Telerik Academy\2.C#\4. C# OOP\3.Teamwork\TankBattle\obj\Debug\TankBattle.csprojResolveAssemblyReference.cache
+E:\GitHub\TankBattle\bin\Debug\TankBattle.exe.config
+E:\GitHub\TankBattle\obj\Debug\TankBattle.exe
+E:\GitHub\TankBattle\obj\Debug\TankBattle.pdb
+E:\GitHub\TankBattle\bin\Debug\TankBattle.exe
+E:\GitHub\TankBattle\bin\Debug\TankBattle.pdb
+E:\GitHub\TankBattle\obj\Debug\TankBattle.csprojResolveAssemblyReference.cache

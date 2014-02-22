@@ -31,10 +31,10 @@ namespace TankBattle
                     if (pressedKey.Key == ConsoleKey.UpArrow || pressedKey.Key == ConsoleKey.DownArrow ||
                         pressedKey.Key == ConsoleKey.LeftArrow || pressedKey.Key == ConsoleKey.RightArrow)
                     {
-                        //if (HitManager.ManagetTankAndWallHit(playerTank, levelObjects, pressedKey))
-                        //{
+                        if (HitManager.ManagetTankAndWallHit(playerTank, levelObjects, pressedKey))
+                        {
                             playerTank.Move(pressedKey);
-                        //}
+                        }
                         
                     }
                     else if (pressedKey.Key == ConsoleKey.Spacebar)
