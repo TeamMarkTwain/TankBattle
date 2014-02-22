@@ -1,4 +1,0 @@
-E:\Telerik Academy\2.C#\4. C# OOP\3.Teamwork\TestingStuff\TestingStuff\bin\Debug\TestingStuff.exe.config
-E:\Telerik Academy\2.C#\4. C# OOP\3.Teamwork\TestingStuff\TestingStuff\obj\Debug\TestingStuff.exe
-E:\Telerik Academy\2.C#\4. C# OOP\3.Teamwork\TestingStuff\TestingStuff\obj\Debug\TestingStuff.pdb
-E:\Telerik Academy\2.C#\4. C# OOP\3.Teamwork\TestingStuff\TestingStuff\bin\Debug\TankBattle.exe.config

@@ -1,0 +1,30 @@
+C:\Users\Slavi\Documents\Visual Studio 2013\Projects\TestingStuff\TestingStuff\bin\Debug\TankBattle.exe.config
+C:\Users\Slavi\Documents\Visual Studio 2013\Projects\TestingStuff\TestingStuff\bin\Debug\TankBattle.exe
+C:\Users\Slavi\Documents\Visual Studio 2013\Projects\TestingStuff\TestingStuff\bin\Debug\TankBattle.pdb
+C:\Users\Slavi\Documents\Visual Studio 2013\Projects\TestingStuff\TestingStuff\obj\Debug\TankBattle.csprojResolveAssemblyReference.cache
+C:\Users\Slavi\Documents\Visual Studio 2013\Projects\TestingStuff\TestingStuff\obj\Debug\TankBattle.exe
+C:\Users\Slavi\Documents\Visual Studio 2013\Projects\TestingStuff\TestingStuff\obj\Debug\TankBattle.pdb
+C:\Users\Слави\Google Диск\MyStuff\TestingStuff\TestingStuff\bin\Debug\TankBattle.exe.config
+C:\Users\Слави\Google Диск\MyStuff\TestingStuff\TestingStuff\obj\Debug\TankBattle.exe
+C:\Users\Слави\Google Диск\MyStuff\TestingStuff\TestingStuff\obj\Debug\TankBattle.pdb
+C:\Users\Слави\Google Диск\MyStuff\TestingStuff\TestingStuff\bin\Debug\TankBattle.exe
+C:\Users\Слави\Google Диск\MyStuff\TestingStuff\TestingStuff\bin\Debug\TankBattle.pdb
+C:\Users\Слави\Google Диск\MyStuff\TestingStuff\TestingStuff\obj\Debug\TankBattle.csprojResolveAssemblyReference.cache
+C:\Users\Slavi\Google Drive\MyStuff\TestingStuff\TestingStuff\bin\Debug\TankBattle.exe.config
+C:\Users\Slavi\Google Drive\MyStuff\TestingStuff\TestingStuff\obj\Debug\TankBattle.exe
+C:\Users\Slavi\Google Drive\MyStuff\TestingStuff\TestingStuff\obj\Debug\TankBattle.pdb
+C:\Users\Slavi\Google Drive\MyStuff\TestingStuff\TestingStuff\bin\Debug\TankBattle.exe
+C:\Users\Slavi\Google Drive\MyStuff\TestingStuff\TestingStuff\bin\Debug\TankBattle.pdb
+C:\Users\Slavi\Google Drive\MyStuff\TestingStuff\TestingStuff\obj\Debug\TankBattle.csprojResolveAssemblyReference.cache
+C:\Users\Slavi\Google Drive\MyStuff\TankBattle\TankBattle\bin\Debug\TankBattle.exe.config
+C:\Users\Slavi\Google Drive\MyStuff\TankBattle\TankBattle\obj\Debug\TankBattle.exe
+C:\Users\Slavi\Google Drive\MyStuff\TankBattle\TankBattle\obj\Debug\TankBattle.pdb
+C:\Users\Slavi\Documents\Visual Studio 2013\Projects\TankBattle\bin\Debug\TankBattle.exe.config
+C:\Users\Slavi\Documents\Visual Studio 2013\Projects\TankBattle\obj\Debug\TankBattle.exe
+C:\Users\Slavi\Documents\Visual Studio 2013\Projects\TankBattle\obj\Debug\TankBattle.pdb
+E:\Telerik Academy\2.C#\4. C# OOP\3.Teamwork\TankBattle\bin\Debug\TankBattle.exe.config
+E:\Telerik Academy\2.C#\4. C# OOP\3.Teamwork\TankBattle\obj\Debug\TankBattle.exe
+E:\Telerik Academy\2.C#\4. C# OOP\3.Teamwork\TankBattle\obj\Debug\TankBattle.pdb
+E:\Telerik Academy\2.C#\4. C# OOP\3.Teamwork\TankBattle\bin\Debug\TankBattle.exe
+E:\Telerik Academy\2.C#\4. C# OOP\3.Teamwork\TankBattle\bin\Debug\TankBattle.pdb
+E:\Telerik Academy\2.C#\4. C# OOP\3.Teamwork\TankBattle\obj\Debug\TankBattle.csprojResolveAssemblyReference.cache
