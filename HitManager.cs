@@ -16,17 +16,14 @@ namespace TankBattle
             ManageShotsAndTargets(shots, targets);
         }
 
-        // Problematic method
         public static bool ManagetTankAndWallHit(Tank playerTank, List<LevelObject> levelObjects, ConsoleKeyInfo pressedKey)
         {
             if (playerTank.Direction == Directions.Up && pressedKey.Key == ConsoleKey.UpArrow)
             {
                 foreach (LevelObject obj in levelObjects)
                 {
-                    if (obj.Y+2 != playerTank.Y - 1) continue;
+                    //if (obj.Y+2 != playerTank.Y - 1) continue;
 
-                    // Probably we must add +2 to the brick coordinate or something like that
-                         //check for Y                   Check for front obj
                     if (obj.Y+2 == playerTank.Y - 1 && (obj.X - playerTank.X <= 5 && obj.X - playerTank.X >= -5))
                     {
                         return false;
@@ -35,15 +32,39 @@ namespace TankBattle
             }
             else if (playerTank.Direction == Directions.Down && pressedKey.Key == ConsoleKey.DownArrow)
             {
-                
-            }
-            else if (playerTank.Direction == Directions.Down && pressedKey.Key == ConsoleKey.DownArrow)
-            {
-                
-            }
-            else if (playerTank.Direction == Directions.Down && pressedKey.Key == ConsoleKey.DownArrow)
-            {
+                foreach (LevelObject obj in levelObjects)
+                {
+                    //if (obj.Y != playerTank.Y + 2) continue;
 
+                    if (obj.Y == playerTank.Y + 2  && (obj.X - playerTank.X <= 5 && obj.X - playerTank.X >= -5))
+                    {
+                        return false;
+                    }
+                }
+            }
+            else if (playerTank.Direction == Directions.Left && pressedKey.Key == ConsoleKey.LeftArrow)
+            {
+                foreach (LevelObject obj in levelObjects)
+                {
+                    //if (obj.X+5 != playerTank.Y - 1) continue;
+
+                    if (obj.X+5 == playerTank.X - 1 && (obj.Y - playerTank.Y <= 2 && obj.Y - playerTank.Y >= -2))
+                    {
+                        return false;
+                    }
+                }
+            }
+            else if (playerTank.Direction == Directions.Right && pressedKey.Key == ConsoleKey.RightArrow)
+            {
+                foreach (LevelObject obj in levelObjects)
+                {
+                    //if (obj.X+5 != playerTank.Y - 1) continue;
+
+                    if (obj.X == playerTank.X + 3 && (obj.Y - playerTank.Y <= 2 && obj.Y - playerTank.Y >= -2))
+                    {
+                        return false;
+                    }
+                }
             }
 
             return true;

@@ -51,6 +51,7 @@
     <Compile Include="Interfaces\IMoveable.cs" />
     <Compile Include="Interfaces\IPrintable.cs" />
     <Compile Include="Level.cs" />
+    <Compile Include="LevelObjects\Base.cs" />
     <Compile Include="LevelObjects\BrickWall.cs" />
     <Compile Include="LevelObjects\Grass.cs" />
     <Compile Include="LevelObjects\River.cs" />

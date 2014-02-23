@@ -34,3 +34,9 @@ E:\GitHub\TankBattle\obj\Debug\TankBattle.pdb
 E:\GitHub\TankBattle\bin\Debug\TankBattle.exe
 E:\GitHub\TankBattle\bin\Debug\TankBattle.pdb
 E:\GitHub\TankBattle\obj\Debug\TankBattle.csprojResolveAssemblyReference.cache
+C:\Users\Slavi\Documents\GitHub\TankBattle\bin\Debug\TankBattle.exe.config
+C:\Users\Slavi\Documents\GitHub\TankBattle\obj\Debug\TankBattle.exe
+C:\Users\Slavi\Documents\GitHub\TankBattle\obj\Debug\TankBattle.pdb
+C:\Users\Slavi\Documents\GitHub\TankBattle\bin\Debug\TankBattle.exe
+C:\Users\Slavi\Documents\GitHub\TankBattle\bin\Debug\TankBattle.pdb
+C:\Users\Slavi\Documents\GitHub\TankBattle\obj\Debug\TankBattle.csprojResolveAssemblyReference.cache
