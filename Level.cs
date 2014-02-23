@@ -76,6 +76,10 @@ namespace TankBattle
                         {
                             level.Add(new Grass(indexX, indexY));
                         }
+                        else if (objects[j] == "H")
+                        {
+                            level.Add(new Base(indexX, indexY));
+                        }
 
                         indexX += 6;
                     }
