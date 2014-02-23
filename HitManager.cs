@@ -22,7 +22,8 @@ namespace TankBattle
             {
                 foreach (LevelObject obj in levelObjects)
                 {
-                    //if (obj.Y+2 != playerTank.Y - 1) continue;
+
+                    if (obj is Grass) continue;
 
                     if (obj.Y+2 == playerTank.Y - 1 && (obj.X - playerTank.X <= 5 && obj.X - playerTank.X >= -5))
                     {
@@ -34,7 +35,7 @@ namespace TankBattle
             {
                 foreach (LevelObject obj in levelObjects)
                 {
-                    //if (obj.Y != playerTank.Y + 2) continue;
+                    if (obj is Grass) continue;
 
                     if (obj.Y == playerTank.Y + 2  && (obj.X - playerTank.X <= 5 && obj.X - playerTank.X >= -5))
                     {
@@ -46,7 +47,7 @@ namespace TankBattle
             {
                 foreach (LevelObject obj in levelObjects)
                 {
-                    //if (obj.X+5 != playerTank.Y - 1) continue;
+                    if (obj is Grass) continue;
 
                     if (obj.X+5 == playerTank.X - 1 && (obj.Y - playerTank.Y <= 2 && obj.Y - playerTank.Y >= -2))
                     {
@@ -58,7 +59,7 @@ namespace TankBattle
             {
                 foreach (LevelObject obj in levelObjects)
                 {
-                    //if (obj.X+5 != playerTank.Y - 1) continue;
+                    if (obj is Grass) continue;
 
                     if (obj.X == playerTank.X + 3 && (obj.Y - playerTank.Y <= 2 && obj.Y - playerTank.Y >= -2))
                     {
