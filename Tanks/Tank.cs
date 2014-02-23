@@ -330,6 +330,10 @@ namespace TankBattle.Tanks
                         if (this.Direction == Directions.Up)
                         {
                             ConsoleAction.Clear(this.X, this.Y, 6, 2);
+                            if (this.y % 3 == 2)
+                            {
+                                this.y--;
+                            }
                         }
                         else
                         {
