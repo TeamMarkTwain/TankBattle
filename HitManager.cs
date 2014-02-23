@@ -19,18 +19,31 @@ namespace TankBattle
         // Problematic method
         public static bool ManagetTankAndWallHit(Tank playerTank, List<LevelObject> levelObjects, ConsoleKeyInfo pressedKey)
         {
-            bool canMove = false;
-
             if (playerTank.Direction == Directions.Up && pressedKey.Key == ConsoleKey.UpArrow)
             {
                 foreach (LevelObject obj in levelObjects)
                 {
+                    if (obj.Y+2 != playerTank.Y - 1) continue;
+
                     // Probably we must add +2 to the brick coordinate or something like that
-                    if (obj.X == playerTank.X && obj.Y == playerTank.Y)
+                         //check for Y                   Check for front obj
+                    if (obj.Y+2 == playerTank.Y - 1 && (obj.X - playerTank.X <= 5 && obj.X - playerTank.X >= -5))
                     {
                         return false;
                     }
                 }
+            }
+            else if (playerTank.Direction == Directions.Down && pressedKey.Key == ConsoleKey.DownArrow)
+            {
+                
+            }
+            else if (playerTank.Direction == Directions.Down && pressedKey.Key == ConsoleKey.DownArrow)
+            {
+                
+            }
+            else if (playerTank.Direction == Directions.Down && pressedKey.Key == ConsoleKey.DownArrow)
+            {
+
             }
 
             return true;
