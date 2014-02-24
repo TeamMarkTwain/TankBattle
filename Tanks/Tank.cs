@@ -181,7 +181,8 @@ namespace TankBattle.Tanks
             #endregion
         }
 
-        public void Move(ConsoleKeyInfo pressedKey)
+        // Made it virtual, so we can override it in the enemy tank class
+        public virtual void Move(ConsoleKeyInfo pressedKey)
         {
             ///*
             //UP ARROW

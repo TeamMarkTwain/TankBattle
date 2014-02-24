@@ -11,7 +11,6 @@ namespace TankBattle.Tanks
         public PlayerTank()
             : base(25, 38, 100, 20, 50, ConsoleColor.DarkGray, Directions.Up)
         {
-
         }
     }
 }
