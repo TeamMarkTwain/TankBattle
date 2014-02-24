@@ -85,6 +85,7 @@
   <ItemGroup>
     <Content Include="Levels\1.txt" />
     <Content Include="Levels\2.txt" />
+    <Content Include="Levels\NumberOfLevels.txt" />
     <Content Include="MenuItems\GameLogo.txt" />
     <Content Include="MenuItems\Profiles.txt" />
   </ItemGroup>

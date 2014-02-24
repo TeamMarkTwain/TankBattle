@@ -8,6 +8,7 @@ namespace TankBattle
 {
     public class TankBattleMain
     {
+      
         static void Main(string[] args)
         {
             AditionalSettings();

@@ -27,9 +27,11 @@ namespace TankBattle.MenuItems
 
         public PlayerTank PersonalTank { get { return this.personalTank; } }
 
+        public Dictionary<byte, int> BestScores { get { return this.bestScores; } }
+
         public int GetLevelScore(byte levelNumber)
         {
-            return this.bestScores[(byte)(levelNumber-1)];
+            return this.bestScores[(byte)(levelNumber)];
         }
 
         //Write created profile
@@ -145,9 +147,9 @@ namespace TankBattle.MenuItems
             StringBuilder builder = new StringBuilder();
             if (profile.bestScores.Count == 0)
             {                   //number of levels 
-                for (int i = 0; i < 5; i++)
+                for (int i = 0; i < Level.NumberOfLevels(); i++)
                 {
-                    builder.AppendFormat("{0}-0;", i);
+                    builder.AppendFormat("{0}-0;", i+1);
                 }
             }
             foreach (var item in profile.bestScores)

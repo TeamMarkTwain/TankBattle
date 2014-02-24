@@ -97,7 +97,7 @@ namespace TankBattle.MenuItems
             List<MenuItem> menuItems = new List<MenuItem>()
             {
                 new MenuItem(35, 20, "New Game", true),
-                new MenuItem(35, 25, "Selec Level", false),
+                new MenuItem(35, 25, "Select Level", false),
                 new MenuItem(35, 30, "Hight scores",false),
                 new MenuItem(35, 35, "Credits",false),
                 new MenuItem(35, 40, "Exit game",false)
@@ -109,16 +109,34 @@ namespace TankBattle.MenuItems
             {
                 case "New Game":
                     Console.Clear();
-                    Engine.StartGame(1, currProfile.PersonalTank); break;
-                case "Select Level": break;
-                case "Hight scores": break;
-                case "Credits": break;
-                case "Exit": Exit(); break;
+                    Engine.StartGame(1, currProfile); break;
+                case "Select Level":
+                    ConsoleAction.Clear(30, 20, 20, 25);
+                    LoadLevelsMenu(currProfile);
+                    break;
+                case "Hight scores": 
+                    ConsoleAction.Clear(30, 20, 20, 25);
+                    VisualiseHightScores(currProfile);
+                    while (true)
+                    {
+                        if (Console.KeyAvailable) LoadMainMenu(currProfile);
+                    }
+                case "Credits":
+                    ConsoleAction.Clear(30, 20, 20, 25);
+                    ConsoleAction.PrintOnPos("Comming soon", 35, 20 , ConsoleColor.Red);
+                    ConsoleAction.PrintOnPos("Enter any key to return", 35, 22, ConsoleColor.Red);
+                    while (true)
+                    {
+                        if (Console.KeyAvailable) LoadMainMenu(currProfile);
+                    }
+                case "Exit game": Exit(); break;
                 case "return": LoadProfileMenu(); break;
                 default:
                     break;
             }
         }
+
+        
 
         //TO DO
         public static void LoadPauseMenu() 
@@ -140,6 +158,50 @@ namespace TankBattle.MenuItems
             {
                 Console.SetCursorPosition(20, 10);
                 Console.WriteLine("Tank Battle");
+            }
+        }
+
+        private static void VisualiseHightScores(PlayerProfile currProfile)
+        {
+            string line = "";
+            for (byte i = 0; i < Level.NumberOfLevels(); i++)
+            {
+                if (i < currProfile.BestScores.Count)
+	            {
+		            line = string.Format("Level {0} : {1} points", i+1, currProfile.GetLevelScore((byte)(i+1)));
+	            }
+                else
+	            {
+                    line = string.Format("Level {0} : Not played", i+1);
+	            }
+                ConsoleAction.PrintOnPos(line, 35, 20+(i*2), ConsoleColor.Green);
+            }
+            ConsoleAction.PrintOnPos("Enter any key to return", 35, 20 + (Level.NumberOfLevels() * 2), ConsoleColor.Red);
+        }
+
+        private static void LoadLevelsMenu(PlayerProfile profile) 
+        {
+            List<MenuItem> levelMenuItems = new List<MenuItem>();
+
+            for (int i = 0; i < Level.NumberOfLevels(); i++)
+            {
+                levelMenuItems.Add(new MenuItem(35, 20 + (i * 2), string.Format("Level {0}", i + 1), false));   
+            }
+
+            levelMenuItems[0].Selected = true;
+
+            string selectedLevelCommand = LoadCommand(levelMenuItems);
+
+            int selectedLevel = 1;
+
+            foreach (var item in levelMenuItems)
+            {
+                if (item.Name == selectedLevelCommand)
+                {
+                    Console.Clear();
+                    Engine.StartGame(selectedLevel, profile);
+                }
+                selectedLevel++;
             }
         }
 
@@ -236,9 +298,9 @@ namespace TankBattle.MenuItems
         {
             Console.Clear();
             Console.ForegroundColor = ConsoleColor.Cyan;
-            Console.SetCursorPosition(20, 8);
+            Console.SetCursorPosition(38, 8);
             Console.WriteLine("Developed by Team Mark Twain");
-            Console.SetCursorPosition(20, 10);
+            Console.SetCursorPosition(38, 10);
             Console.WriteLine("Telerik Academy 2013/2014");
             Thread.Sleep(3000);
             Environment.Exit(0);

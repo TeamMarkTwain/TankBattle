@@ -6,17 +6,19 @@ using System.Threading.Tasks;
 using System.Threading;
 using TankBattle.LevelObjects;
 using TankBattle.Interfaces;
+using TankBattle.MenuItems;
 
 namespace TankBattle
 {
     public static class Engine
     {
         private static bool[,] fieldObjects = new bool[Level.PlaygroundHeight(), Level.PlaygroundWidth()];
-        public static void StartGame(int level, PlayerTank playerTank)
+        public static void StartGame(int level, PlayerProfile player)
         {
             List<CannonBall> cannonBalls = new List<CannonBall>();
             Level currentLevel = new Level(level);
             List<LevelObject> levelObjects = currentLevel.LoadLevel();
+            PlayerTank playerTank = player.PersonalTank;
 
             currentLevel.PrintLevel();
 

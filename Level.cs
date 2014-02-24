@@ -111,5 +111,16 @@ namespace TankBattle
                 ConsoleAction.PrintCharOnPos(Symbols.GetChar(219), x, playgroundWidth - 1, ConsoleColor.Gray);
             }
         }
+
+        public static int NumberOfLevels()
+        {
+            int number = 0;
+            using (StreamReader reader = new StreamReader("../../Levels/NumberOfLevels.txt"))
+            {
+                number = int.Parse(reader.ReadLine());
+            }
+
+            return number;
+        }
     }
 }
