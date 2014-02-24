@@ -1,0 +1,10 @@
+1.Name:Slavi,Color:DarkGray,Scores:1-0;2-0;3-0;4-0;5-0
+2.Name:Profile,Color:Yellow,Scores:0-0;1-0;2-0;3-0;4-;
+3.Name:NewTank,Color:Green,Scores:0-0;1-0;2-0;3-0;4-;
+4.Name:TestPRofile,Color:Blue,Scores:0-0;1-0;2-0;3-0;4-;
+5.E
+6.E
+7.E
+8.E
+9.E
+10.E

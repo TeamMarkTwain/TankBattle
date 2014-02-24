@@ -18,6 +18,12 @@ namespace TankBattle
                 Console.SetCursorPosition(curLeft, curTop);
             }
         }
+        public static void PrintOnPos(string str, int x, int y, ConsoleColor color)
+        {
+            Console.ForegroundColor = color;
+            Console.SetCursorPosition(x, y);
+            Console.Write(str);
+        }
 
         public static void PrintOnPos(string[] str, int x, int y, ConsoleColor color)
         {

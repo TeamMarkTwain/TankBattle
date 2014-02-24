@@ -2,6 +2,7 @@
 using TankBattle.LevelObjects;
 using System.Linq;
 using TankBattle.Tanks;
+using TankBattle.MenuItems;
 
 namespace TankBattle
 {
@@ -9,6 +10,20 @@ namespace TankBattle
     {
         static void Main(string[] args)
         {
+            AditionalSettings();
+
+            Menu.PrintLogo();
+
+            PlayerProfile currentProfile = Menu.LoadProfileMenu();
+
+
+            Menu.LoadMainMenu(currentProfile);
+
+        }
+
+        private static void AditionalSettings()
+        {
+
             Console.WindowHeight = 45;
             Console.WindowWidth = 90;
 
@@ -16,9 +31,6 @@ namespace TankBattle
             Console.Title = "Tank Battle";
 
             Symbols.LoadChars();
-            PlayerTank playerTank = new PlayerTank();
-
-            Engine.StartGame(1, playerTank);
         }
     }
 }

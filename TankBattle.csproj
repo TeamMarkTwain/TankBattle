@@ -57,6 +57,9 @@
     <Compile Include="LevelObjects\River.cs" />
     <Compile Include="LevelObjects\SteelWall.cs" />
     <Compile Include="ConsoleAction.cs" />
+    <Compile Include="MenuItems\Menu.cs" />
+    <Compile Include="MenuItems\MenuItem.cs" />
+    <Compile Include="MenuItems\PlayerProfile.cs" />
     <Compile Include="SimpleCannonBall.cs" />
     <Compile Include="TankBattleMain.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -82,6 +85,8 @@
   <ItemGroup>
     <Content Include="Levels\1.txt" />
     <Content Include="Levels\2.txt" />
+    <Content Include="MenuItems\GameLogo.txt" />
+    <Content Include="MenuItems\Profiles.txt" />
   </ItemGroup>
   <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

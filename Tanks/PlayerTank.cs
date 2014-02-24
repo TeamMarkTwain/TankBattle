@@ -12,5 +12,11 @@ namespace TankBattle.Tanks
             : base(25, 38, 100, 20, 50, ConsoleColor.DarkGray, Directions.Up)
         {
         }
+
+        public PlayerTank(ConsoleColor color)
+            : base(25, 38, 100, 20, 50, color, Directions.Up)
+        {
+
+        }
     }
 }
