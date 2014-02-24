@@ -154,7 +154,6 @@ namespace TankBattle.MenuItems
             {
                 builder.AppendFormat("{0}-{1};", item.Key, item.Value);
             }
-            builder.Remove(builder.Length - 2, 1);
 
             return builder.ToString();
         }
