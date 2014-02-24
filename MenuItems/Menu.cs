@@ -67,6 +67,10 @@ namespace TankBattle.MenuItems
                 List<MenuItem> profileItems = PlayerProfile.GetProfilesAsMenu();
 
                 string selectedCommand = LoadCommand(profileItems);
+                if (selectedCommand == "return")
+                {
+                    LoadProfileMenu();
+                }
                 sbyte position = 0;
 
                 foreach (var item in profileItems)
@@ -110,6 +114,7 @@ namespace TankBattle.MenuItems
                 case "Hight scores": break;
                 case "Credits": break;
                 case "Exit": Exit(); break;
+                case "return": LoadProfileMenu(); break;
                 default:
                     break;
             }
@@ -173,6 +178,10 @@ namespace TankBattle.MenuItems
                     else if (pressedKey.Key == ConsoleKey.Enter)
                     {
                         return menuItems[selectedItem].Name;
+                    }
+                    else if (pressedKey.Key == ConsoleKey.Escape)
+                    {
+                        return "return";
                     }
                     Console.CursorVisible = false;
                     Console.SetCursorPosition(45, 19);
