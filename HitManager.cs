@@ -16,7 +16,7 @@ namespace TankBattle
             ManageShotsAndTargets(shots, targets);
         }
 
-        public static bool ManagetTankAndWallHit(Tank playerTank, List<LevelObject> levelObjects, ConsoleKeyInfo pressedKey)
+        public static bool ManageTankAndWallHit(Tank playerTank, List<LevelObject> levelObjects, ConsoleKeyInfo pressedKey)
         {
             if (playerTank.Direction == Directions.Up && pressedKey.Key == ConsoleKey.UpArrow)
             {
