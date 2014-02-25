@@ -11,11 +11,6 @@ namespace TankBattle
 {
     public static class HitManager
     {
-        public static void ManageHits(List<CannonBall> shots, List<LevelObject> targets)
-        {
-            ManageShotsAndTargets(shots, targets);
-        }
-
         public static bool ManageTankAndWallHit(Tank playerTank, List<LevelObject> levelObjects, ConsoleKeyInfo pressedKey)
         {
             if (playerTank.Direction == Directions.Up && pressedKey.Key == ConsoleKey.UpArrow)
@@ -71,7 +66,7 @@ namespace TankBattle
             return true;
         }
 
-        private static void ManageShotsAndTargets(List<CannonBall> shots, List<LevelObject> targets)
+        public static void ManageShotsAndLevelObject(List<CannonBall> shots, List<LevelObject> targets)
         {
             foreach (var shot in shots)
             {
