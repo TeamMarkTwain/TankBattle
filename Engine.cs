@@ -87,7 +87,7 @@ namespace TankBattle
                     enemyTanks[i].Update();
                 }
 
-                HitManager.ManageHits(cannonBalls, levelObjects);
+                HitManager.ManageShotsAndLevelObject(cannonBalls, levelObjects);
 
                 for (int i = 0; i < levelObjects.Count; i++)
                 {
