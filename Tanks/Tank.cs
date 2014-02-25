@@ -10,7 +10,6 @@ namespace TankBattle.Tanks
         private int health;
         private int shootPower;
         private int speed;
-        private ulong score;
         private int x, y; // coordinats
         private Directions direction; // 0 - UP, 1- LEFT, 2- RIGHT, 3 - DOWN
 
@@ -20,7 +19,6 @@ namespace TankBattle.Tanks
             this.tankColor = color;
             this.health = health;
             this.shootPower = shootPower;
-            this.score = 0;
             this.speed = speed;
             this.x = x;
             this.y = y;

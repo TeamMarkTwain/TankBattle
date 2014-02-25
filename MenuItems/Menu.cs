@@ -22,12 +22,12 @@ namespace TankBattle.MenuItems
             {
                 Console.Clear();
                 PrintLogo();
-                sbyte profileNumber = PlayerProfile.GetEmptySloth();
+                sbyte profileNumber = ProfileManager.GetEmptySloth();
 
                 if (profileNumber < 0)
                 {
                     ConsoleAction.PrintOnPos("No empty sloth! Choose a profile to replace it!", 30, 18, ConsoleColor.Red);
-                    List<MenuItem> profileItems = PlayerProfile.GetProfilesAsMenu();
+                    List<MenuItem> profileItems = ProfileManager.GetProfilesAsMenu();
 
                     string deleteCommand = LoadCommand(profileItems);
                     sbyte position = 0;
@@ -56,7 +56,7 @@ namespace TankBattle.MenuItems
 
                 PlayerProfile player = new PlayerProfile(name, new Dictionary<byte, int>(), new PlayerTank(color), profileNumber);
 
-                PlayerProfile.WriteToFile(player);
+                ProfileManager.WriteToFile(player);
 
                 LoadMainMenu(player);
             }
@@ -64,7 +64,7 @@ namespace TankBattle.MenuItems
             {
                 Console.Clear();
                 PrintLogo();
-                List<MenuItem> profileItems = PlayerProfile.GetProfilesAsMenu();
+                List<MenuItem> profileItems = ProfileManager.GetProfilesAsMenu();
 
                 string selectedCommand = LoadCommand(profileItems);
                 if (selectedCommand == "return")
@@ -77,7 +77,7 @@ namespace TankBattle.MenuItems
                 {
                     if (selectedCommand == item.Name)
                     {
-                        LoadMainMenu(PlayerProfile.LoadProfile(position));
+                        LoadMainMenu(ProfileManager.LoadProfile(position));
                     }
                     position++;
                 }
@@ -88,7 +88,6 @@ namespace TankBattle.MenuItems
             return new PlayerProfile("guest", new Dictionary<byte,int>(), new PlayerTank(), 9);
         }
 
-        //TO DO: select level, credits, hightscores
         public static void LoadMainMenu(PlayerProfile currProfile) 
         {
             Console.Clear();
@@ -141,7 +140,10 @@ namespace TankBattle.MenuItems
         //TO DO
         public static void LoadPauseMenu() 
         {
-
+            while (true)
+            {
+                
+            }
         }
 
         public static void PrintLogo()

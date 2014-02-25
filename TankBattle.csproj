@@ -60,6 +60,7 @@
     <Compile Include="MenuItems\Menu.cs" />
     <Compile Include="MenuItems\MenuItem.cs" />
     <Compile Include="MenuItems\PlayerProfile.cs" />
+    <Compile Include="MenuItems\ProfileManager.cs" />
     <Compile Include="SimpleCannonBall.cs" />
     <Compile Include="TankBattleMain.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

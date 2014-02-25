@@ -24,6 +24,8 @@ namespace TankBattle
 
             playerTank.Print();
 
+            
+
             while (true)
             {
                 while (Console.KeyAvailable)
@@ -47,7 +49,7 @@ namespace TankBattle
                     }
                     else if (pressedKey.Key == ConsoleKey.Escape)
                     {
-                        //implement pause  and  pause menu (exit, continue ... )
+                        Menu.LoadPauseMenu();
                     }
                 }
 
@@ -84,7 +86,18 @@ namespace TankBattle
                         cannonBalls.RemoveAt(i);
                     }
                 }
+
+                
             }
         }
+
+        private static void PrintStats(PlayerProfile player)  //stack overflow problem !!!!
+        {
+            ConsoleAction.PrintOnPos(string.Format("Name: {0}", player.Name), 10, 42, ConsoleColor.Cyan);
+            //ConsoleAction.PrintOnPos(string.Format("Lives: {0}", playerTank.Lives), 19 + player.Name.Length, 42, ConsoleColor.Cyan);
+            //ConsoleAction.PrintOnPos(string.Format("Destroyed: {0}", tankDestroyed), 25 + name.Length, 43, ConsoleColor.Cyan);
+        }
+
+        private static void EndGame(PlayerProfile player) { }
     }
 }
