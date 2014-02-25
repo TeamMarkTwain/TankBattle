@@ -15,51 +15,78 @@ namespace TankBattle
         {
             if (playerTank.Direction == Directions.Up && pressedKey.Key == ConsoleKey.UpArrow)
             {
-                foreach (LevelObject obj in levelObjects)
-                {
-
-                    if (obj is Grass) continue;
-
-                    if (obj.Y+2 == playerTank.Y - 1 && (obj.X - playerTank.X <= 5 && obj.X - playerTank.X >= -5))
-                    {
-                        return false;
-                    }
-                }
+                return IsDirectionUpAvailable(playerTank, levelObjects);
             }
             else if (playerTank.Direction == Directions.Down && pressedKey.Key == ConsoleKey.DownArrow)
             {
-                foreach (LevelObject obj in levelObjects)
-                {
-                    if (obj is Grass) continue;
-
-                    if (obj.Y == playerTank.Y + 2  && (obj.X - playerTank.X <= 5 && obj.X - playerTank.X >= -5))
-                    {
-                        return false;
-                    }
-                }
+                return IsDirectionDownAvailable(playerTank, levelObjects);
             }
             else if (playerTank.Direction == Directions.Left && pressedKey.Key == ConsoleKey.LeftArrow)
             {
-                foreach (LevelObject obj in levelObjects)
-                {
-                    if (obj is Grass) continue;
-
-                    if (obj.X+5 == playerTank.X - 1 && (obj.Y - playerTank.Y <= 2 && obj.Y - playerTank.Y >= -2))
-                    {
-                        return false;
-                    }
-                }
+                return IsDirectionLeftAvailable(playerTank, levelObjects);
             }
             else if (playerTank.Direction == Directions.Right && pressedKey.Key == ConsoleKey.RightArrow)
             {
-                foreach (LevelObject obj in levelObjects)
-                {
-                    if (obj is Grass) continue;
+                return IsDirectionRightAvailable(playerTank, levelObjects);
+            }
 
-                    if (obj.X == playerTank.X + 3 && (obj.Y - playerTank.Y <= 2 && obj.Y - playerTank.Y >= -2))
-                    {
-                        return false;
-                    }
+            return true;
+        }
+
+        public static bool IsDirectionUpAvailable(Tank playerTank, List<LevelObject> levelObjects)
+        {
+            foreach (LevelObject obj in levelObjects)
+            {
+                if (obj is Grass) continue;
+
+                if (obj.Y + 2 == playerTank.Y - 1 && (obj.X - playerTank.X <= 5 && obj.X - playerTank.X >= -5))
+                {
+                    return false;
+                }
+            }
+
+            return true;
+        }
+
+        public static bool IsDirectionDownAvailable(Tank playerTank, List<LevelObject> levelObjects)
+        {
+            foreach (LevelObject obj in levelObjects)
+            {
+                if (obj is Grass) continue;
+
+                if (obj.Y == playerTank.Y + 2 && (obj.X - playerTank.X <= 5 && obj.X - playerTank.X >= -5))
+                {
+                    return false;
+                }
+            }
+
+            return true;
+        }
+
+        public static bool IsDirectionLeftAvailable(Tank playerTank, List<LevelObject> levelObjects)
+        {
+            foreach (LevelObject obj in levelObjects)
+            {
+                if (obj is Grass) continue;
+
+                if (obj.X + 5 == playerTank.X - 1 && (obj.Y - playerTank.Y <= 2 && obj.Y - playerTank.Y >= -2))
+                {
+                    return false;
+                }
+            }
+
+            return true;
+        }
+
+        public static bool IsDirectionRightAvailable(Tank playerTank, List<LevelObject> levelObjects)
+        {
+            foreach (LevelObject obj in levelObjects)
+            {
+                if (obj is Grass) continue;
+
+                if (obj.X == playerTank.X + 3 && (obj.Y - playerTank.Y <= 2 && obj.Y - playerTank.Y >= -2))
+                {
+                    return false;
                 }
             }
 
