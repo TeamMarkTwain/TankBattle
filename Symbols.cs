@@ -14,9 +14,9 @@ namespace TankBattle
                 chars[i] = Encoding.GetEncoding(437).GetChars(new byte[] { i })[0];
             }
         }
-        public static char GetChar(byte charNum) 
-        {
+       public static char GetChar(byte charNum) 
+       {
             return chars[charNum];
-        }
+       }
     }
 }

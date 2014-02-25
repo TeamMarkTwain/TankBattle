@@ -1,9 +1,11 @@
 ﻿using System;
+using System.Text;
 
 namespace TankBattle
 {
     public static class ConsoleAction
     {
+
         public static void Clear(int x, int y, int width, int height)
         {
             if (x < 79 && y < 45 && x > 0 && y > 0)
@@ -18,6 +20,7 @@ namespace TankBattle
                 Console.SetCursorPosition(curLeft, curTop);
             }
         }
+
         public static void PrintOnPos(string str, int x, int y, ConsoleColor color)
         {
             Console.ForegroundColor = color;
@@ -79,5 +82,7 @@ namespace TankBattle
 
             return false;
         }
+
+        
     }
 }
