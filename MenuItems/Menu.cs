@@ -49,6 +49,15 @@ namespace TankBattle.MenuItems
                 ConsoleAction.PrintOnPos("Profile name: ", 35, 17, ConsoleColor.Green);
                 string name = Console.ReadLine();
 
+                while (name.Length > 10 || name.Length < 3)
+                {
+                    ConsoleAction.Clear(35, 17, 30, 2);
+                    ConsoleAction.PrintOnPos("Name must has 3-10 symbols: ", 35, 17, ConsoleColor.Red);
+                    ConsoleAction.PrintOnPos("Profile name: ", 35, 18, ConsoleColor.Green);
+                    name = Console.ReadLine();
+                }
+                
+
                 ConsoleAction.PrintOnPos("Choose tank color: ", 35, 19, ConsoleColor.Green);
                 //TO DO : Check for same name
 
