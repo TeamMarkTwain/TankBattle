@@ -147,11 +147,57 @@ namespace TankBattle.MenuItems
         
 
         //TO DO
-        public static void LoadPauseMenu() 
+        public static void LoadPauseMenu(PlayerProfile currProfile) 
         {
+            List<MenuItem> pausedMenuItems = new List<MenuItem>()
+            {
+                new MenuItem(10, 43,"Resume game", true ),
+                new MenuItem(25, 43, "Exit game", false)
+            };
+
+            PrintMenu(pausedMenuItems);
+
+            int selectedItem = 0;
+
             while (true)
             {
-                
+                if (Console.KeyAvailable)
+                {
+                    ConsoleKeyInfo pressedKey = Console.ReadKey(true);
+
+                    if (pressedKey.Key == ConsoleKey.LeftArrow)
+                    {
+                        if (selectedItem > 0)
+                        {
+                            pausedMenuItems[selectedItem - 1].Selected = true;
+                            pausedMenuItems[selectedItem].Selected = false;
+                            selectedItem--;
+                        }
+                    }
+                    else if (pressedKey.Key == ConsoleKey.RightArrow)
+                    {
+                        if (selectedItem < pausedMenuItems.Count - 1)
+                        {
+                            pausedMenuItems[selectedItem + 1].Selected = true;
+                            pausedMenuItems[selectedItem].Selected = false;
+                            selectedItem++;
+                        }
+                    }
+                    else if (pressedKey.Key == ConsoleKey.Enter)
+                    {
+                        if (pausedMenuItems[0].Selected)
+                        {
+                            ConsoleAction.Clear(10, 43, 30,  1);
+                            return;
+                        }
+                        else
+                        {
+                            Console.Clear();
+                            LoadMainMenu(currProfile);
+                        }
+                    }
+                    PrintMenu(pausedMenuItems);
+                }
             }
         }
 

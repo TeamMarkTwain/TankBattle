@@ -13,6 +13,7 @@ namespace TankBattle
     public static class Engine
     {
         private static bool[,] fieldObjects = new bool[Level.PlaygroundHeight(), Level.PlaygroundWidth()];
+        private static Random randomGenerator = new Random();
         public static void StartGame(int level, PlayerProfile player)
         {
             List<CannonBall> cannonBalls = new List<CannonBall>();
@@ -61,7 +62,7 @@ namespace TankBattle
                     }
                     else if (pressedKey.Key == ConsoleKey.Escape)
                     {
-                        Menu.LoadPauseMenu();
+                        Menu.LoadPauseMenu(player);
                     }
                 }
 

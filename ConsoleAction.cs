@@ -6,7 +6,7 @@ namespace TankBattle
     {
         public static void Clear(int x, int y, int width, int height)
         {
-            if (x < 79 && y < 40 && x > 0 && y > 0)
+            if (x < 79 && y < 45 && x > 0 && y > 0)
             {
                 int curTop = Console.CursorTop;
                 int curLeft = Console.CursorLeft;

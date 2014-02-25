@@ -4,7 +4,7 @@
 4.Name:Toko,Color:White,Scores:1-0;2-0;
 5.Name:sddsf,Color:Yellow,Scores:1-0;2-0;
 6.Name:Dani,Color:Magenta,Scores:1-0;2-0;
-7.E
+7.Name:Test,Color:Green,Scores:1-0;2-0;
 8.E
 9.E
 10.E
