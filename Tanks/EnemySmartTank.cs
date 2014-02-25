@@ -26,7 +26,7 @@ namespace TankBattle.Tanks
             this.Move(this.Think());
         }
 
-        // Look for the player tank, if in the same row or col return true.
+        // Look for the player tank, if in the same row or col return true(shoot).
         public bool CanShootToPlayertank()
         {
             bool canShoot = false;
@@ -64,10 +64,10 @@ namespace TankBattle.Tanks
             int minDistance = int.MaxValue;
             int distance = 0;
 
-            bool isLeftDirectionAvailable = HitManager.ManageTankAndWallHit(this, this.levelObjects, new ConsoleKeyInfo(' ', ConsoleKey.LeftArrow, false, false, false));
-            bool isRightDirectionAvailable = HitManager.ManageTankAndWallHit(this, this.levelObjects, new ConsoleKeyInfo(' ', ConsoleKey.RightArrow, false, false, false));
-            bool isUpDirectionAvailable = HitManager.ManageTankAndWallHit(this, this.levelObjects, new ConsoleKeyInfo(' ', ConsoleKey.UpArrow, false, false, false));
-            bool isDownDirectionAvailable = HitManager.ManageTankAndWallHit(this, this.levelObjects, new ConsoleKeyInfo(' ', ConsoleKey.DownArrow, false, false, false));
+            bool isLeftDirectionAvailable = HitManager.IsDirectionLeftAvailable(this, this.levelObjects);
+            bool isRightDirectionAvailable = HitManager.IsDirectionRightAvailable(this, this.levelObjects);
+            bool isUpDirectionAvailable = HitManager.IsDirectionUpAvailable(this, this.levelObjects);
+            bool isDownDirectionAvailable = HitManager.IsDirectionDownAvailable(this, this.levelObjects);
 
             if (this.Direction == Directions.Down)
             {
