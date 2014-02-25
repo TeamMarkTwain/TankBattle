@@ -18,13 +18,25 @@ namespace TankBattle
             List<CannonBall> cannonBalls = new List<CannonBall>();
             Level currentLevel = new Level(level);
             List<LevelObject> levelObjects = currentLevel.LoadLevel();
+            List<EnemySmartTank> enemyTanks = new List<EnemySmartTank>();
             PlayerTank playerTank = player.PersonalTank;
 
-            currentLevel.PrintLevel();
+            int enemyTankPosition = 1;
+            int enemyTanksCount = 3;
 
+            for (int i = 0; i < enemyTanksCount; i++)
+            {
+                enemyTanks.Add(new EnemySmartTank(playerTank, levelObjects, enemyTankPosition, 1, Directions.Down));
+                enemyTankPosition += 15;
+            }
+
+            currentLevel.PrintLevel();
             playerTank.Print();
 
-            
+            for (int i = 0; i < enemyTanks.Count; i++)
+            {
+                enemyTanks[i].Print();
+            }
 
             while (true)
             {
@@ -35,7 +47,7 @@ namespace TankBattle
                     if (pressedKey.Key == ConsoleKey.UpArrow || pressedKey.Key == ConsoleKey.DownArrow ||
                         pressedKey.Key == ConsoleKey.LeftArrow || pressedKey.Key == ConsoleKey.RightArrow)
                     {
-                        if (HitManager.ManagetTankAndWallHit(playerTank, levelObjects, pressedKey))
+                        if (HitManager.ManageTankAndWallHit(playerTank, levelObjects, pressedKey))
                         {
                             playerTank.Move(pressedKey);
                         }
@@ -61,6 +73,18 @@ namespace TankBattle
 
                     cannonBalls[i].Move();
                     cannonBalls[i].Print();
+                }
+
+                // enemy tank part
+                for (int i = 0; i < enemyTanks.Count; i++)
+                {
+                    if (enemyTanks[i].CanShootToPlayertank())
+                    {
+                        int[] barrelCoords = enemyTanks[i].GetTankBarrel();
+                        cannonBalls.Add(new SimpleCannonBall(enemyTanks[i].Y + barrelCoords[0], enemyTanks[i].X + barrelCoords[1], 1, 100, enemyTanks[i].Direction));
+                    }
+
+                    enemyTanks[i].Update();
                 }
 
                 HitManager.ManageHits(cannonBalls, levelObjects);
