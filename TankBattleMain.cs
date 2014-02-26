@@ -17,9 +17,7 @@ namespace TankBattle
 
             PlayerProfile currentProfile = Menu.LoadProfileMenu();
 
-
             Menu.LoadMainMenu(currentProfile);
-
         }
 
         private static void AditionalSettings()
