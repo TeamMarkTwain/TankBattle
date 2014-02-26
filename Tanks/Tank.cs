@@ -1,52 +1,37 @@
 ﻿using System;
 using TankBattle.Interfaces;
+using TankBattle.LevelObjects;
 
 namespace TankBattle.Tanks
 {
-    public abstract class Tank : IPrintable, IHitable, ICanShoot, IDestroyable
+    public abstract class Tank : LevelObject, IPrintable, IHitable, ICanShoot, IDestroyable
     {
         private string[] up, down, left, right;
-        private readonly ConsoleColor tankColor;
         private int health;
         private int shootPower;
         private int speed;
-        private int x, y; // coordinats
         private Directions direction; // 0 - UP, 1- LEFT, 2- RIGHT, 3 - DOWN
 
 
         public Tank(int x, int y, int health, int speed, int shootPower, ConsoleColor color, Directions direction)
+            : base(x, y, color)
         {
-            this.tankColor = color;
             this.health = health;
             this.shootPower = shootPower;
             this.speed = speed;
-            this.x = x;
-            this.y = y;
             this.direction = direction;
             LoadTankVisuals();
-            
-        }
-        public int X 
-        { 
-            get { return this.x; }
-            set { this.x = value; }
-        }
-        public int Y 
-        { 
-            get { return this.y; }
-            set { this.y = value; }
+
         }
 
         public Directions Direction
         {
             get { return this.direction; }
             set
-            { 
-                this.direction = value; 
+            {
+                this.direction = value;
             }
         }
-
-        public ConsoleColor Color { get { return this.tankColor; } }
 
         public int Health { get { return this.health; } }
 
@@ -97,7 +82,7 @@ namespace TankBattle.Tanks
             return barrelcoords;
         }
 
-        public string[] GetVisual()
+        public override string[] LoadVisual()
         {
             // 0 - UP, 1- LEFT, 2- RIGHT, 3 - DOWN
             if (this.direction == Directions.Up)
@@ -141,7 +126,7 @@ namespace TankBattle.Tanks
                 Symbols.GetChar(177),
                 Symbols.GetChar(177)
             };
-            up = new string[2] { new string(firstLineUp), new string( secondLineUp)};
+            up = new string[2] { new string(firstLineUp), new string(secondLineUp) };
             #endregion
 
             #region Left
@@ -170,7 +155,7 @@ namespace TankBattle.Tanks
                 Symbols.GetChar(205)
             };
 
-            right = new string[3] { new string(firstLine),new string(middleLine), new string(firstLine) };
+            right = new string[3] { new string(firstLine), new string(middleLine), new string(firstLine) };
             #endregion
 
             #region Down
@@ -203,14 +188,14 @@ namespace TankBattle.Tanks
                         {
                             ConsoleAction.Clear(this.X, this.Y, 3, 3);
 
-                            if (this.Direction == Directions.Right && (this.x % 6) > 1)
+                            if (this.Direction == Directions.Right && (this.X % 6) > 1)
                             {
-                                this.x = this.x - (this.x % 6) + 1;
+                                this.X = this.X - (this.X % 6) + 1;
                             }
 
-                            else if (this.Direction == Directions.Left && (this.x % 6) > 1 && this.x % 6 < 5)
+                            else if (this.Direction == Directions.Left && (this.X % 6) > 1 && this.X % 6 < 5)
                             {
-                                this.x = this.x - (this.x % 6) + 1;
+                                this.X = this.X - (this.X % 6) + 1;
                             }
                         }
 
@@ -245,18 +230,18 @@ namespace TankBattle.Tanks
                         else
                         {
                             ConsoleAction.Clear(this.X, this.Y, 6, 2);
-                            this.x++;
+                            this.X++;
 
                             if (this.Direction == Directions.Down)
                             {
-                                if (y % 3 != 1)
+                                if (this.Y % 3 != 1)
                                 {
-                                    y--;
+                                    this.Y--;
                                 }
                             }
-                            else if (this.Direction == Directions.Up && this.y % 3 == 2)
+                            else if (this.Direction == Directions.Up && this.Y % 3 == 2)
                             {
-                                this.y--;
+                                this.Y--;
                             }
                         }
 
@@ -292,14 +277,14 @@ namespace TankBattle.Tanks
 
                             if (this.Direction == Directions.Down)
                             {
-                                if (y % 3 != 1)
+                                if (this.Y % 3 != 1)
                                 {
-                                    y--;
+                                    this.Y--;
                                 }
                             }
-                            else if (this.Direction == Directions.Up && this.y % 3 == 2)
+                            else if (this.Direction == Directions.Up && this.Y % 3 == 2)
                             {
-                                this.y--;
+                                this.Y--;
                             }
                         }
 
@@ -329,22 +314,22 @@ namespace TankBattle.Tanks
                         if (this.Direction == Directions.Up)
                         {
                             ConsoleAction.Clear(this.X, this.Y, 6, 2);
-                            if (this.y % 3 == 2)
+                            if (this.Y % 3 == 2)
                             {
-                                this.y--;
+                                this.Y--;
                             }
                         }
                         else
                         {
                             ConsoleAction.Clear(this.X, this.Y, 3, 3);
 
-                            if (this.Direction == Directions.Right && (this.x % 6) > 1)
+                            if (this.Direction == Directions.Right && (this.X % 6) > 1)
                             {
-                                this.x = this.x - (this.x % 6) + 1;
+                                this.X = this.X - (this.X % 6) + 1;
                             }
-                            else if (this.Direction == Directions.Left && (this.x % 6) > 1 && this.x % 6 < 5)
+                            else if (this.Direction == Directions.Left && (this.X % 6) > 1 && this.X % 6 < 5)
                             {
-                                this.x = this.x - (this.x % 6) + 1;
+                                this.X = this.X - (this.X % 6) + 1;
                             }
                         }
 
@@ -365,9 +350,9 @@ namespace TankBattle.Tanks
             this.health -= amount;
         }
 
-        public void Print()
+        public override void Print()
         {
-            ConsoleAction.PrintOnPos(this.GetVisual(), this.x, this.y, this.Color);
+            ConsoleAction.PrintOnPos(this.LoadVisual(), this.X, this.Y, this.Color);
         }
     }
 }
