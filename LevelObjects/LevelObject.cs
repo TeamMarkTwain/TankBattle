@@ -3,7 +3,7 @@ using TankBattle.Interfaces;
 
 namespace TankBattle.LevelObjects
 {
-    public abstract class LevelObject: IPrintable
+    public abstract class LevelObject : IPrintable
     {
         private int x, y;
         private ConsoleColor color;
@@ -18,11 +18,13 @@ namespace TankBattle.LevelObjects
         public int X
         {
             get { return this.x; }
+            protected set { this.x = value; }
         }
 
         public int Y
         {
             get { return this.y; }
+            protected set { this.y = value; }
         }
 
         public ConsoleColor Color
