@@ -22,6 +22,9 @@ namespace TankBattle
             List<EnemySmartTank> enemyTanks = new List<EnemySmartTank>();
             PlayerTank playerTank = player.PersonalTank;
 
+            // List<Tank> allTanks = new List<Tank>(enemyTanks);
+            // allTanks.Add(playerTank);
+
             int enemyTankPosition = 1;
             int enemyTanksCount = 3;
 
@@ -68,14 +71,6 @@ namespace TankBattle
 
                 Thread.Sleep(50);
 
-                for (int i = 0; i < cannonBalls.Count; i++)
-                {
-                    ConsoleAction.Clear(cannonBalls[i].Y, cannonBalls[i].X, 1, 1);
-
-                    cannonBalls[i].Move();
-                    cannonBalls[i].Print();
-                }
-
                 // enemy tank part
                 for (int i = 0; i < enemyTanks.Count; i++)
                 {
@@ -86,6 +81,25 @@ namespace TankBattle
                     }
 
                     enemyTanks[i].Update();
+                }
+
+                for (int i = 0; i < cannonBalls.Count; i++)
+                {
+                    ConsoleAction.Clear(cannonBalls[i].Y, cannonBalls[i].X, 1, 1);
+
+                    cannonBalls[i].Move();
+                    cannonBalls[i].Print();
+                }
+
+                HitManager.ManageShotsAndTanks(cannonBalls, enemyTanks);
+
+                for (int i = 0; i < enemyTanks.Count; i++)
+                {
+                    if (enemyTanks[i].IsDestroyed)
+                    {
+                        ConsoleAction.Clear(enemyTanks[i].X, enemyTanks[i].Y, enemyTanks[i].GetVisual()[0].Length, enemyTanks[i].GetVisual().Length);
+                        enemyTanks.RemoveAt(i);
+                    }
                 }
 
                 HitManager.ManageShotsAndLevelObject(cannonBalls, levelObjects);
@@ -111,8 +125,6 @@ namespace TankBattle
                         cannonBalls.RemoveAt(i);
                     }
                 }
-
-                
             }
         }
 
