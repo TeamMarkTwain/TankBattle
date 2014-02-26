@@ -93,7 +93,7 @@ namespace TankBattle
             return true;
         }
 
-        public static void ManageShotsAndTanks(List<CannonBall> shots, List<EnemySmartTank> tanks)
+        public static void ManageShotsAndTanks(List<CannonBall> shots, List<Tank> tanks)
         {
             for (int i = 0; i < shots.Count; i++)
             {
