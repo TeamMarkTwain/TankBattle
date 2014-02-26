@@ -19,11 +19,12 @@ namespace TankBattle
             List<CannonBall> cannonBalls = new List<CannonBall>();
             Level currentLevel = new Level(level);
             List<LevelObject> levelObjects = currentLevel.LoadLevel();
-            List<EnemySmartTank> enemyTanks = new List<EnemySmartTank>();
+            List<Tank> enemyTanks = new List<Tank>();
             PlayerTank playerTank = player.PersonalTank;
 
-            // List<Tank> allTanks = new List<Tank>(enemyTanks);
-            // allTanks.Add(playerTank);
+            enemyTanks.Add(player.PersonalTank);
+            //List<Tank> allTanks = new List<Tank>(enemyTanks);
+            //allTanks.Add(playerTank);
 
             int enemyTankPosition = 1;
             int enemyTanksCount = 3;
@@ -71,18 +72,22 @@ namespace TankBattle
 
                 Thread.Sleep(50);
 
-                // enemy tank part
+                // Shoot if possible and update direction and position
                 for (int i = 0; i < enemyTanks.Count; i++)
                 {
-                    if (enemyTanks[i].CanShootToPlayertank())
+                    if (enemyTanks[i] is EnemySmartTank)
                     {
-                        int[] barrelCoords = enemyTanks[i].GetTankBarrel();
-                        cannonBalls.Add(new SimpleCannonBall(enemyTanks[i].Y + barrelCoords[0], enemyTanks[i].X + barrelCoords[1], 1, 100, enemyTanks[i].Direction));
-                    }
+                        if ((enemyTanks[i] as EnemySmartTank).CanShootToPlayertank())
+                        {
+                            int[] barrelCoords = enemyTanks[i].GetTankBarrel();
+                            cannonBalls.Add(new SimpleCannonBall(enemyTanks[i].Y + barrelCoords[0], enemyTanks[i].X + barrelCoords[1], 1, 100, enemyTanks[i].Direction));
+                        }
 
-                    enemyTanks[i].Update();
+                        (enemyTanks[i] as EnemySmartTank).Update();
+                    }
                 }
 
+                // Move all cannonballs
                 for (int i = 0; i < cannonBalls.Count; i++)
                 {
                     ConsoleAction.Clear(cannonBalls[i].Y, cannonBalls[i].X, 1, 1);
@@ -91,19 +96,36 @@ namespace TankBattle
                     cannonBalls[i].Print();
                 }
 
+                // Check if some cannonball hit a tank
                 HitManager.ManageShotsAndTanks(cannonBalls, enemyTanks);
 
                 for (int i = 0; i < enemyTanks.Count; i++)
                 {
                     if (enemyTanks[i].IsDestroyed)
                     {
-                        ConsoleAction.Clear(enemyTanks[i].X, enemyTanks[i].Y, enemyTanks[i].GetVisual()[0].Length, enemyTanks[i].GetVisual().Length);
-                        enemyTanks.RemoveAt(i);
+                        // Check if current tank is player tank
+                        if (enemyTanks[i] is PlayerTank)
+                        {
+                            (enemyTanks[i] as PlayerTank).LooseLive();
+
+                            if ((enemyTanks[i] as PlayerTank).IsGameOver)
+                            {
+                                // What to do if player tank is dead ?
+                                return;
+                            }
+                        }
+                        else
+                        {
+                            ConsoleAction.Clear(enemyTanks[i].X, enemyTanks[i].Y, enemyTanks[i].GetVisual()[0].Length, enemyTanks[i].GetVisual().Length);
+                            enemyTanks.RemoveAt(i);
+                        }
                     }
                 }
 
+                // Check if some cannonball hit a wall(brick)
                 HitManager.ManageShotsAndLevelObject(cannonBalls, levelObjects);
 
+                // If some of the bricks is destroyed, remove it
                 for (int i = 0; i < levelObjects.Count; i++)
                 {
                     IDestroyable obj = levelObjects[i] as IDestroyable;
@@ -117,6 +139,7 @@ namespace TankBattle
                     }
                 }
 
+                // If cannonball is destroyed, remove it
                 for (int i = 0; i < cannonBalls.Count; i++)
                 {
                     if (cannonBalls[i].IsDestroyed)
