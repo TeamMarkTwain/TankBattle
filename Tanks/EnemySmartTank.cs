@@ -8,22 +8,24 @@ using TankBattle.LevelObjects;
 
 namespace TankBattle.Tanks
 {
-    public class EnemySmartTank : Tank, IPrintable, IHitable, ICanShoot, IDestroyable
+    public class EnemySmartTank : EnemyTank, IPrintable, IHitable, ICanShoot, IDestroyable
     {
         private Random randomizer = new Random();
-        private PlayerTank playerTank;
         private List<LevelObject> levelObjects;
 
         public EnemySmartTank(PlayerTank playerTank, List<LevelObject> levelObjects, int x, int y, Directions direction, int health = 100, int speed = 20, int shootPower = 50, ConsoleColor color = ConsoleColor.Cyan)
-            : base(x, y, health, speed, shootPower, color, direction)
+            : base(x, y, playerTank, direction, health, speed, shootPower, color)
         {
             this.levelObjects = levelObjects;
-            this.playerTank = playerTank;
         }
 
-        public void Update()
+        public override void Update()
         {
-            this.Move(this.Think());
+            if (randomizer.Next(0, 101) > 70)
+            {
+                this.Move(this.Think());
+            }
+
         }
 
         // Look for the player tank, if in the same row or col return true(shoot).
@@ -213,32 +215,6 @@ namespace TankBattle.Tanks
             return newDirection;
         }
 
-        private int CalcDistanceBetweenTanks(Directions direction)
-        {
-            int distance = 0;
 
-            if (direction == Directions.Down)
-            {
-                distance = (this.X - playerTank.X) * (this.X - playerTank.X) +
-                           (this.Y + this.Speed - playerTank.Y) * (this.Y + this.Speed - playerTank.Y);
-            }
-            else if (direction == Directions.Up)
-            {
-                distance = (this.X - playerTank.X) * (this.X - playerTank.X) +
-                           (this.Y - this.Speed - playerTank.Y) * (this.Y - this.Speed - playerTank.Y);
-            }
-            else if (direction == Directions.Left)
-            {
-                distance = (this.X - this.Speed - playerTank.X) * (this.X - this.Speed - playerTank.X) +
-                           (this.Y - playerTank.Y) * (this.Y - playerTank.Y);
-            }
-            else if (direction == Directions.Right)
-            {
-                distance = (this.X + this.Speed - playerTank.X) * (this.X + this.Speed - playerTank.X) +
-                           (this.Y - playerTank.Y) * (this.Y - playerTank.Y);
-            }
-
-            return distance;
-        }
     }
 }
