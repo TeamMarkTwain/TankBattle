@@ -56,6 +56,17 @@ namespace TankBattle.Tanks
                 }
             }
 
+            // Check if tank can shoot, if so generate random number between 1 and 3
+            // If 1, tank shoot, else don't shoot
+            if (canShoot)
+            {
+                int randomShootNumber = randomizer.Next(1, 4);
+
+                if (randomShootNumber != 1)
+                {
+                    canShoot = false;
+                }
+            }
             return canShoot;
         }
 
