@@ -93,13 +93,31 @@ namespace TankBattle
             return true;
         }
 
+        public static void ManageShotsAndTanks(List<CannonBall> shots, List<EnemySmartTank> tanks)
+        {
+            for (int i = 0; i < shots.Count; i++)
+            {
+                for (int j = 0; j < tanks.Count; j++)
+                {
+                    if (IsShotPositionEqualTank(shots[i], tanks[j]))
+                    {
+                        int shotPower = shots[i].ShootPower;
+                        int targetHealth = tanks[j].Health;
+
+                        shots[i].LooseHealth(targetHealth);
+                        tanks[j].LooseHealth(shotPower);
+                    }
+                }
+            }
+        }
+
         public static void ManageShotsAndLevelObject(List<CannonBall> shots, List<LevelObject> targets)
         {
             foreach (var shot in shots)
             {
                 foreach (var target in targets)
                 {
-                    if (IsPositionEqual(shot, target))
+                    if (IsShotPositionEqualLevelObject(shot, target))
                     {
                         if (target is IDestroyable)
                         {
@@ -118,7 +136,7 @@ namespace TankBattle
             }
         }
 
-        private static bool IsPositionEqual(CannonBall shot, LevelObject target)
+        private static bool IsShotPositionEqualLevelObject(CannonBall shot, LevelObject target)
         {
             bool isHitted = false;
 
@@ -132,6 +150,30 @@ namespace TankBattle
 
             int targetMinY = target.X;
             int targetMaxY = target.X + target.LoadVisual()[0].Length - 1;
+
+            if (shotX >= targetMinX && shotX <= targetMaxX &&
+                shotY >= targetMinY && shotY <= targetMaxY)
+            {
+                isHitted = true;
+            }
+
+            return isHitted;
+        }
+
+        private static bool IsShotPositionEqualTank(CannonBall shot, Tank tank)
+        {
+            bool isHitted = false;
+
+            string[] targetImage = tank.GetVisual();
+
+            int shotX = shot.X;
+            int shotY = shot.Y;
+
+            int targetMinX = tank.Y;
+            int targetMaxX = tank.Y + tank.GetVisual().Length - 1;
+
+            int targetMinY = tank.X;
+            int targetMaxY = tank.X + tank.GetVisual()[0].Length - 1;
 
             if (shotX >= targetMinX && shotX <= targetMaxX &&
                 shotY >= targetMinY && shotY <= targetMaxY)
