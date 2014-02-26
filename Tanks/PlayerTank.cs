@@ -13,6 +13,7 @@ namespace TankBattle.Tanks
         private byte lives;
         private bool isGameOver = false;
         private int tanksDestroyed = 0; 
+
         public PlayerTank()
             : base(25, 38, 100, 20, 50, ConsoleColor.DarkGray, Directions.Up)
         {
@@ -42,6 +43,16 @@ namespace TankBattle.Tanks
         public void DestroyTank()
         {
             this.tanksDestroyed++;
+        }
+
+        public override string[] LoadVisual()
+        {
+            return base.LoadVisual();
+        }
+
+        public override void Print()
+        {
+            base.Print();
         }
     }
 }
