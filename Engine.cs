@@ -17,9 +17,12 @@ namespace TankBattle
 
         public static void StartGame(int level, PlayerProfile player)
         {
+            DateTime timeGameStart = DateTime.Now;
+
             Level currentLevel = new Level(level);
             List<CannonBall> cannonBalls = new List<CannonBall>();
             List<Tank> enemyTanks = new List<Tank>();
+            SoundEngine.StartGameSound();
 
             PlayerTank playerTank = player.PersonalTank;
 
@@ -60,12 +63,18 @@ namespace TankBattle
                         if (HitManager.ManageTankAndWallHit(playerTank, allLevelObjects, pressedKey)) // changed from LevelObjects
                         {
                             playerTank.Move(pressedKey);
+                            if (DateTime.Now > timeGameStart.AddSeconds(5))
+                            {
+                                SoundEngine.MoveSound();
+                            }
+                            
                         }
 
                     }
                     else if (pressedKey.Key == ConsoleKey.Spacebar)
                     {
                         //implement fire
+                        SoundEngine.FireSound();
                         int[] barrelCoords = playerTank.GetTankBarrel();
                         cannonBalls.Add(new SimpleCannonBall(playerTank.Y + barrelCoords[0], playerTank.X + barrelCoords[1], 1, 100, playerTank.Direction));
                     }
@@ -88,12 +97,16 @@ namespace TankBattle
                         if (currentPlayerTank.IsDestroyed)
                         {
                             currentPlayerTank.LooseLive();
+                            currentPlayerTank.SetDefaultValues();
+                            currentPlayerTank.Print();
+                            
 
                             if (currentPlayerTank.IsGameOver)
                             {
                                 // What to do if player tank is dead ?
-                                return;
+                                EndGame(player, currentLevel.LevelNumber);
                             }
+                            continue;
                         }
                     }
 
@@ -123,6 +136,11 @@ namespace TankBattle
                         }
                     }
                 }
+                //check if base is dstroyed
+                if (HitManager.IsBaseDestroyed(allLevelObjects)) 
+                {
+                    EndGame(player, currentLevel.LevelNumber);
+                }
 
                 // Move all cannonballs
                 for (int i = 0; i < cannonBalls.Count; i++)
@@ -150,16 +168,33 @@ namespace TankBattle
                 {
                     return;
                 }
+
+                player.AddScore(2); //for surviving time 
+                PrintStats(player, playerTank);
             }
         }
 
-        private static void PrintStats(PlayerProfile player)  //stack overflow problem !!!!
+        private static void PrintStats(PlayerProfile player, PlayerTank tank)  //stack overflow problem !!!!
         {
             ConsoleAction.PrintOnPos(string.Format("Name: {0}", player.Name), 10, 42, ConsoleColor.Cyan);
-            //ConsoleAction.PrintOnPos(string.Format("Lives: {0}", playerTank.Lives), 19 + player.Name.Length, 42, ConsoleColor.Cyan);
-            //ConsoleAction.PrintOnPos(string.Format("Destroyed: {0}", tankDestroyed), 25 + name.Length, 43, ConsoleColor.Cyan);
+            //ConsoleAction.PrintOnPos(string.Format("Lives: {0}", tank.Lives), 19 + player.Name.Length, 42, ConsoleColor.Cyan);
+            ConsoleAction.PrintOnPos(string.Format("Score: {0}", player.CurrentScore), 25 + player.Name.Length, 42, ConsoleColor.Cyan);
         }
 
-        private static void EndGame(PlayerProfile player) { }
+        private static void EndGame(PlayerProfile player, int levelNumber) 
+        {
+            Console.Clear();
+            SoundEngine.EndGameSound();
+
+            ConsoleAction.PrintOnPos("GAME OVER !!!", 35, 20, ConsoleColor.Red);
+            ConsoleAction.PrintOnPos(string.Format("Your Score: {0} points",player.CurrentScore ), 35, 24, ConsoleColor.Green);
+            ConsoleAction.PrintOnPos("Press any key to continue", 35, 28, ConsoleColor.White);
+            Console.ReadKey();
+
+            player.SetScore(player.CurrentScore, (byte)levelNumber);
+            ProfileManager.WriteToFile(player);
+
+            Menu.LoadMainMenu(player);
+        }
     }
 }

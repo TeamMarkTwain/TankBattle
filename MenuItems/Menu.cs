@@ -63,7 +63,7 @@ namespace TankBattle.MenuItems
 
                 ConsoleColor color = LoadColorsMenu();
 
-                PlayerProfile player = new PlayerProfile(name, new Dictionary<byte, int>(), new PlayerTank(color), profileNumber);
+                PlayerProfile player = new PlayerProfile(name, new Dictionary<byte, ulong>(), new PlayerTank(color), profileNumber);
 
                 ProfileManager.WriteToFile(player);
 
@@ -94,7 +94,7 @@ namespace TankBattle.MenuItems
                 
             }
 
-            return new PlayerProfile("guest", new Dictionary<byte,int>(), new PlayerTank(), 9);
+            return new PlayerProfile("guest", new Dictionary<byte, ulong>(), new PlayerTank(), 9);
         }
 
         public static void LoadMainMenu(PlayerProfile currProfile) 

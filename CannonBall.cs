@@ -10,7 +10,7 @@ namespace TankBattle
         private int speed;
         private int shootPower;
         private char visual;
-
+        //private bool is
         public CannonBall(int x, int y, int speed, int shootPower, Directions direction)
         {
             this.x = x;

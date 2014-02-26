@@ -1,22 +1,41 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using System.Media;
 
 namespace TankBattle
 {
     //IMPLEMENT
     public static class SoundEngine
     {
-        public static void MoveSound() { }
+        private static SoundPlayer musicPlayer;
+        private static SoundPlayer inGamePlayer;
+        public static void MoveSound() 
+        {
+            inGamePlayer = new SoundPlayer("../../Sounds/background.wav");
+            inGamePlayer.Play();
+        }
 
-        public static void EndGameSound() { }
+        public static void EndGameSound() 
+        {
+            musicPlayer = new SoundPlayer("../../Sounds/gameover.wav");
+            musicPlayer.Play();
+        }
 
-        public static void StartGameSound() { }
+        public static void StartGameSound() 
+        {
+            musicPlayer = new SoundPlayer("../../Sounds/gamestart.wav");
+            musicPlayer.Play();
+        }
 
-        public static void HitSound() { }
+        public static void HitSound() 
+        {
+            inGamePlayer = new SoundPlayer("../../Sounds/explosion.wav");
+            inGamePlayer.Play();
+        }
 
-        public static void FireSound() { }
+        public static void FireSound() 
+        {
+            inGamePlayer = new SoundPlayer("../../Sounds/fire.wav");
+            inGamePlayer.Play();
+        }
     }
 }

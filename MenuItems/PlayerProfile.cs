@@ -9,12 +9,12 @@ namespace TankBattle.MenuItems
     public class PlayerProfile
     {
         private string name;
-        private Dictionary<byte, int> bestScores;  // Lvl - best score
+        private Dictionary<byte, ulong> bestScores;  // Lvl - best score
         private PlayerTank personalTank;
         private sbyte profileNumber;
         private ulong currentScore;
 
-        public PlayerProfile(string name, Dictionary<byte, int> bestScores, PlayerTank personalTank, sbyte profileNumber)
+        public PlayerProfile(string name, Dictionary<byte, ulong> bestScores, PlayerTank personalTank, sbyte profileNumber)
         {
             this.name = name;
             this.bestScores = bestScores;
@@ -29,16 +29,38 @@ namespace TankBattle.MenuItems
 
         public PlayerTank PersonalTank { get { return this.personalTank; } }
 
-        public Dictionary<byte, int> BestScores { get { return this.bestScores; } }
+        public Dictionary<byte, ulong> BestScores { get { return this.bestScores; } }
 
-        public ulong Score { get { return this.Score; } }
+        public ulong CurrentScore 
+        { 
+            get { return this.currentScore; }
+        }
 
-        public int GetLevelScore(byte levelNumber)
+        public void AddScore(ulong scoreToAdd)
+        {
+            this.currentScore += scoreToAdd;
+        }
+
+        public ulong GetLevelScore(byte levelNumber)
         {
             return this.bestScores[(byte)(levelNumber)];
         }
 
-        
+        public void SetScore(ulong score, byte level)
+        {
+            if (this.bestScores.ContainsKey(level))
+            {
+
+                if (this.GetLevelScore(level) < score)
+                {
+                    this.bestScores[level] = score;
+                }
+            }
+            else
+            {
+                this.bestScores.Add(level, score);
+            }
+        }
 
     }
 }

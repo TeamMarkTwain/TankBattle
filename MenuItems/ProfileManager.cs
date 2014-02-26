@@ -60,7 +60,7 @@ namespace TankBattle.MenuItems
             }
         }
 
-        //Get epmy sloth for creating ne profile. If there is no empy, returns -1
+        //Get epmy sloth for creating new profile. If there is no empy, returns -1
         public static sbyte GetEmptySloth()
         {
             string line = "";
@@ -154,16 +154,16 @@ namespace TankBattle.MenuItems
         }
 
         //Converts scores from string (from Profile.txt)
-        private static Dictionary<byte, int> ScoresToDictionary(string scoreLine)
+        private static Dictionary<byte, ulong> ScoresToDictionary(string scoreLine)
         {
-            Dictionary<byte, int> profileScores = new Dictionary<byte, int>();
+            Dictionary<byte, ulong> profileScores = new Dictionary<byte, ulong>();
             string[] levelScores = scoreLine.Split(new char[] { ';' }, StringSplitOptions.RemoveEmptyEntries);
             //level count
             for (int i = 0; i < levelScores.Length; i++)
             {
                 string[] keyValue = levelScores[i].Split(new char[] { '-' }, StringSplitOptions.RemoveEmptyEntries);
                 byte key = byte.Parse(keyValue[0]);
-                int value = int.Parse(keyValue[1]);
+                ulong value = ulong.Parse(keyValue[1]);
 
                 profileScores.Add(key, value);
             }

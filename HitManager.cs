@@ -93,6 +93,19 @@ namespace TankBattle
             return true;
         }
 
+        public static bool IsBaseDestroyed(List<LevelObject> levelObjects)
+        {
+            foreach (var item in levelObjects)
+            {
+                var levelObject = item as Base;
+                if (levelObject != null)
+                {
+                    return levelObject.IsDestroyed;
+                }
+            }
+            return true;
+        }
+
         public static void ManageShotsAndLevelObject(List<CannonBall> shots, List<LevelObject> targets)
         {
             foreach (var shot in shots)
@@ -101,6 +114,7 @@ namespace TankBattle
                 {
                     if (IsShotPositionEqualLevelObject(shot, target))
                     {
+                        SoundEngine.HitSound();
                         if (target is IDestroyable)
                         {
                             int shotPower = shot.ShootPower;

@@ -82,6 +82,10 @@ namespace TankBattle.Tanks
             return barrelcoords;
         }
 
+        protected void ReSetHealth()
+        {
+            this.health = 100;
+        }
         public override string[] LoadVisual()
         {
             // 0 - UP, 1- LEFT, 2- RIGHT, 3 - DOWN
