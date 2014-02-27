@@ -60,8 +60,8 @@
     <Compile Include="ConsoleAction.cs" />
     <Compile Include="MenuItems\Menu.cs" />
     <Compile Include="MenuItems\MenuItem.cs" />
-    <Compile Include="MenuItems\PlayerProfile.cs" />
-    <Compile Include="MenuItems\ProfileManager.cs" />
+    <Compile Include="Profile\PlayerProfile.cs" />
+    <Compile Include="Profile\ProfileManager.cs" />
     <Compile Include="SimpleCannonBall.cs" />
     <Compile Include="SoundEngine.cs" />
     <Compile Include="TankBattleMain.cs" />
@@ -84,7 +84,7 @@
     <Content Include="Levels\3.txt" />
     <Content Include="Levels\NumberOfLevels.txt" />
     <Content Include="MenuItems\GameLogo.txt" />
-    <Content Include="MenuItems\Profiles.txt" />
+    <Content Include="Profile\Profiles.txt" />
     <Content Include="Sounds\background.wav" />
     <Content Include="Sounds\bonus.wav" />
     <Content Include="Sounds\brick.wav" />

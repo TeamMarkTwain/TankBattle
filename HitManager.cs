@@ -1,8 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using TankBattle.MenuItems;
+using TankBattle.Profile;
 using TankBattle.Interfaces;
 using TankBattle.LevelObjects;
 using TankBattle.Tanks;

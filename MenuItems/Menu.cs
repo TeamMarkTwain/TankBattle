@@ -3,6 +3,7 @@ using System.IO;
 using System.Collections.Generic;
 using System.Threading;
 using TankBattle.Tanks;
+using TankBattle.Profile;
 
 namespace TankBattle.MenuItems
 {
@@ -12,8 +13,8 @@ namespace TankBattle.MenuItems
         {
             List<MenuItem> menuItems = new List<MenuItem>()
             {
-                new MenuItem(35, 18, "Create Profile", true),
-                new MenuItem(35, 23, "Load Profile", false)
+                new MenuItem(30, 18, "Create Profile", true),
+                new MenuItem(30, 23, "Load Profile", false)
             };
 
             string command = LoadCommand(menuItems);
@@ -46,19 +47,19 @@ namespace TankBattle.MenuItems
 
                 }
 
-                ConsoleAction.PrintOnPos("Profile name: ", 35, 17, ConsoleColor.Green);
+                ConsoleAction.PrintOnPos("Profile name: ", 30, 17, ConsoleColor.Green);
                 string name = Console.ReadLine();
 
                 while (name.Length > 10 || name.Length < 3)
                 {
-                    ConsoleAction.Clear(35, 17, 30, 2);
-                    ConsoleAction.PrintOnPos("Name must has 3-10 symbols: ", 35, 17, ConsoleColor.Red);
-                    ConsoleAction.PrintOnPos("Profile name: ", 35, 18, ConsoleColor.Green);
+                    ConsoleAction.Clear(30, 17, 30, 2);
+                    ConsoleAction.PrintOnPos("Name must has 3-10 symbols: ", 30, 17, ConsoleColor.Red);
+                    ConsoleAction.PrintOnPos("Profile name: ", 30, 18, ConsoleColor.Green);
                     name = Console.ReadLine();
                 }
-                
 
-                ConsoleAction.PrintOnPos("Choose tank color: ", 35, 19, ConsoleColor.Green);
+
+                ConsoleAction.PrintOnPos("Choose tank color: ", 30, 19, ConsoleColor.Green);
                 //TO DO : Check for same name
 
                 ConsoleColor color = LoadColorsMenu();
@@ -104,11 +105,11 @@ namespace TankBattle.MenuItems
 
             List<MenuItem> menuItems = new List<MenuItem>()
             {
-                new MenuItem(35, 20, "New Game", true),
-                new MenuItem(35, 25, "Select Level", false),
-                new MenuItem(35, 30, "Hight scores",false),
-                new MenuItem(35, 35, "Credits",false),
-                new MenuItem(35, 40, "Exit game",false)
+                new MenuItem(30, 20, "New Game", true),
+                new MenuItem(30, 25, "Select Level", false),
+                new MenuItem(30, 30, "Hight scores",false),
+                new MenuItem(30, 35, "Credits",false),
+                new MenuItem(30, 40, "Exit game",false)
             };
 
             string command = LoadCommand(menuItems);
@@ -131,8 +132,8 @@ namespace TankBattle.MenuItems
                     }
                 case "Credits":
                     ConsoleAction.Clear(30, 20, 20, 25);
-                    ConsoleAction.PrintOnPos("Comming soon", 35, 20 , ConsoleColor.Red);
-                    ConsoleAction.PrintOnPos("Enter any key to return", 35, 22, ConsoleColor.Red);
+                    ConsoleAction.PrintOnPos("Comming soon", 30, 20, ConsoleColor.Red);
+                    ConsoleAction.PrintOnPos("Enter any key to return", 30, 22, ConsoleColor.Red);
                     while (true)
                     {
                         if (Console.KeyAvailable) LoadMainMenu(currProfile);
@@ -232,9 +233,9 @@ namespace TankBattle.MenuItems
 	            {
                     line = string.Format("Level {0} : Not played", i+1);
 	            }
-                ConsoleAction.PrintOnPos(line, 35, 20+(i*2), ConsoleColor.Green);
+                ConsoleAction.PrintOnPos(line, 30, 20 + (i * 2), ConsoleColor.Green);
             }
-            ConsoleAction.PrintOnPos("Enter any key to return", 35, 20 + (Level.NumberOfLevels() * 2), ConsoleColor.Red);
+            ConsoleAction.PrintOnPos("Enter any key to return", 30, 20 + (Level.NumberOfLevels() * 2), ConsoleColor.Red);
         }
 
         private static void LoadLevelsMenu(PlayerProfile profile) 
@@ -243,7 +244,7 @@ namespace TankBattle.MenuItems
 
             for (int i = 0; i < Level.NumberOfLevels(); i++)
             {
-                levelMenuItems.Add(new MenuItem(35, 20 + (i * 2), string.Format("Level {0}", i + 1), false));   
+                levelMenuItems.Add(new MenuItem(30, 20 + (i * 2), string.Format("Level {0}", i + 1), false));   
             }
 
             levelMenuItems[0].Selected = true;
@@ -327,13 +328,13 @@ namespace TankBattle.MenuItems
         {
             List<MenuItem> items = new List<MenuItem>()
             {
-                new MenuItem(35, 22, "Dark Gray(default)", true),
-                new MenuItem(35, 24, "Green", false),
-                new MenuItem(35, 26, "Blue", false),
-                new MenuItem(35, 28, "White", false),
-                new MenuItem(35, 30, "Yellow", false),
-                new MenuItem(35, 32, "Magenta", false),
-                new MenuItem(35, 34, "Cyan", false)
+                new MenuItem(30, 22, "Dark Gray(default)", true),
+                new MenuItem(30, 24, "Green", false),
+                new MenuItem(30, 26, "Blue", false),
+                new MenuItem(30, 28, "White", false),
+                new MenuItem(30, 30, "Yellow", false),
+                new MenuItem(30, 32, "Magenta", false),
+                new MenuItem(30, 34, "Cyan", false)
             };
 
             string command = LoadCommand(items);

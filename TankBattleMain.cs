@@ -1,7 +1,6 @@
 ﻿using System;
-using TankBattle.LevelObjects;
 using System.Linq;
-using TankBattle.Tanks;
+using TankBattle.Profile;
 using TankBattle.MenuItems;
 
 namespace TankBattle
@@ -24,7 +23,7 @@ namespace TankBattle
         {
 
             Console.WindowHeight = 45;
-            Console.WindowWidth = 90;
+            Console.WindowWidth = 80;
 
             Console.CursorVisible = false;
             Console.Title = "Tank Battle";

@@ -3,13 +3,14 @@ using System.Collections.Generic;
 using System.Text;
 using System.IO;
 using TankBattle.Tanks;
+using TankBattle.MenuItems;
 
-namespace TankBattle.MenuItems
+namespace TankBattle.Profile
 {
     public static class ProfileManager
     {
         private static int numberOfProfiles = 10;
-        private static string profilesPath = @"..\..\MenuItems\Profiles.txt";
+        private static string profilesPath = @"..\..\Profile\Profiles.txt";
 
         //Write created profile
         public static void WriteToFile(PlayerProfile profile)
@@ -108,7 +109,7 @@ namespace TankBattle.MenuItems
                     {
                         int lenght = subLine.IndexOf(',') - (subLine.IndexOf("Name:") + 5);
                         string name = subLine.Substring(subLine.IndexOf("Name:") + 5, lenght);
-                        profilesAsMenu.Add(new MenuItem(40, 20 + (i * 2), name, false));
+                        profilesAsMenu.Add(new MenuItem(33, 20 + (i * 2), name, false));
                     }
                 }
 

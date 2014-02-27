@@ -1,10 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.IO;
-using System.Text;
 using TankBattle.Tanks;
 
-namespace TankBattle.MenuItems
+namespace TankBattle.Profile
 {
     public class PlayerProfile
     {

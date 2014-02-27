@@ -6,6 +6,7 @@ using System.Threading;
 using TankBattle.LevelObjects;
 using TankBattle.Interfaces;
 using TankBattle.MenuItems;
+using TankBattle.Profile;
 
 namespace TankBattle
 {

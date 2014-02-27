@@ -1,6 +1,6 @@
 1.Name:Slavi,Color:DarkGray,Scores:1-2520;2-4535;3-500;
 2.Name:Gabi,Color:Blue,Scores:1-0;2-344;
-3.E
+3.Name:Doge,Color:White,Scores:1-0;2-0;3-0;
 4.E
 5.E
 6.E
