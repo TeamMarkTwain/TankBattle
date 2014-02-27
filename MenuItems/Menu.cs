@@ -193,6 +193,7 @@ namespace TankBattle.MenuItems
                         else
                         {
                             Console.Clear();
+                            Engine.SetDefaults(currProfile);
                             LoadMainMenu(currProfile);
                         }
                     }

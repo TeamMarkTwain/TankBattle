@@ -40,6 +40,7 @@ namespace TankBattle
                 allLevelObjects.Add(new EnemySmartTank(playerTank, allLevelObjects, enemyTankPosition, 1, Directions.Down));
                 enemyTankPosition += 15;
             }
+            enemyTankPosition = 1;
 
             currentLevel.PrintLevel();
             playerTank.Print();
@@ -190,6 +191,14 @@ namespace TankBattle
                             allLevelObjects.Add(new EnemySmartTank(playerTank, allLevelObjects, enemyTankPosition, 1, Directions.Down));
                             enemyTankPosition += 15;
                         }
+                        for (int i = 0; i < allLevelObjects.Count; i++)
+                        {
+                            if (allLevelObjects[i] is EnemySmartTank)
+                            {
+                                allLevelObjects[i].Print();
+                            }
+                        }
+                        enemyTankPosition = 1;
                     }
                 }
 
@@ -200,8 +209,19 @@ namespace TankBattle
                     player.AddScore(10);
 
                 }
-                
+                RePrintLevelObjects(allLevelObjects);
                 PrintStats(player, lives);
+            }
+        }
+        //To keep Rivers and grass
+        private static void RePrintLevelObjects(List<LevelObject> levelObjects)
+        {
+            foreach (var item in levelObjects)
+            {
+                if (item is IReprintable)
+                {
+                    item.Print();
+                }
             }
         }
 
@@ -281,7 +301,7 @@ namespace TankBattle
 
         }
 
-        private static void SetDefaults(PlayerProfile profile)
+        public static void SetDefaults(PlayerProfile profile)
         {
             profile.PersonalTank.SetDefaultValues();
             profile.ResetCurrentScore();

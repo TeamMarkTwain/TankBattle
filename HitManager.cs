@@ -114,8 +114,11 @@ namespace TankBattle
                 {
                     if (IsShotPositionEqualLevelObject(shot, target))
                     {
+                        if (!(target is IReprintable))
+                        {
+                            SoundEngine.HitSound();
+                        }
                         
-                        SoundEngine.HitSound();
                         if (target is IDestroyable)
                         {
                             int shotPower = shot.ShootPower;
@@ -131,7 +134,6 @@ namespace TankBattle
 
                         if (shot.IsFiredFromPlayer)
                         {
-                            player.AddScore(5);
 
                             if (target as EnemyTank != null)
                             {

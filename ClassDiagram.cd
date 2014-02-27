@@ -1,7 +1,7 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <ClassDiagram MajorVersion="1" MinorVersion="1">
   <Class Name="TankBattle.LevelObjects.Base" Collapsed="true">
-    <Position X="1" Y="1.75" Width="1.5" />
+    <Position X="1.5" Y="2" Width="1.5" />
     <TypeIdentifier>
       <HashCode>gAAACAAAAAAAAIBQAAAAAAAAAAAAAAAAAAAAAAAEAIg=</HashCode>
       <FileName>LevelObjects\Base.cs</FileName>
@@ -9,7 +9,7 @@
     <Lollipop Position="0.2" />
   </Class>
   <Class Name="TankBattle.LevelObjects.BrickWall" Collapsed="true">
-    <Position X="3.25" Y="1.75" Width="1.5" />
+    <Position X="8.25" Y="2" Width="1.5" />
     <TypeIdentifier>
       <HashCode>gAAACAAAAAAAAIBQAAAAAAAAAAAAAAAAAAAAAIAEAIg=</HashCode>
       <FileName>LevelObjects\BrickWall.cs</FileName>
@@ -17,14 +17,15 @@
     <Lollipop Position="0.2" />
   </Class>
   <Class Name="TankBattle.LevelObjects.Grass" Collapsed="true">
-    <Position X="7.75" Y="1.75" Width="1.5" />
+    <Position X="12.75" Y="2" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>gAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAIAEAIA=</HashCode>
+      <HashCode>gAAAAAQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAIAEAIA=</HashCode>
       <FileName>LevelObjects\Grass.cs</FileName>
     </TypeIdentifier>
+    <Lollipop Position="0.2" />
   </Class>
   <Class Name="TankBattle.LevelObjects.LevelObject" Collapsed="true">
-    <Position X="5.5" Y="0.5" Width="1.5" />
+    <Position X="8.25" Y="0.5" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAACAAABggAAEYIA=</HashCode>
       <FileName>LevelObjects\LevelObject.cs</FileName>
@@ -32,14 +33,15 @@
     <Lollipop Position="0.2" />
   </Class>
   <Class Name="TankBattle.LevelObjects.River" Collapsed="true">
-    <Position X="5.5" Y="1.75" Width="1.5" />
+    <Position X="10.5" Y="2" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>gAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAIAEAIA=</HashCode>
+      <HashCode>gAAAAAQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAIAEAIA=</HashCode>
       <FileName>LevelObjects\River.cs</FileName>
     </TypeIdentifier>
+    <Lollipop Position="0.2" />
   </Class>
   <Class Name="TankBattle.LevelObjects.SteelWall" Collapsed="true">
-    <Position X="10" Y="1.75" Width="1.5" />
+    <Position X="15" Y="2" Width="1.5" />
     <TypeIdentifier>
       <HashCode>gAAACAAAAAAAAIBQAAAAAAAAAAAAAAAAAAAAAIAEAIg=</HashCode>
       <FileName>LevelObjects\SteelWall.cs</FileName>
@@ -47,150 +49,171 @@
     <Lollipop Position="0.2" />
   </Class>
   <Class Name="TankBattle.MenuItems.Menu" Collapsed="true">
-    <Position X="12.5" Y="1.5" Width="1.5" />
+    <Position X="19.25" Y="0.5" Width="1.5" />
     <TypeIdentifier>
       <HashCode>ACEAAAAAABAAQAAAAAAAAAAABIAAAAAQJAAAABAAAAA=</HashCode>
       <FileName>MenuItems\Menu.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="TankBattle.MenuItems.MenuItem" Collapsed="true">
-    <Position X="14.25" Y="1.5" Width="1.5" />
+    <Position X="19.25" Y="1.5" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAAAAAAAAAQAAAAEAAAAAABgAgAAYAI=</HashCode>
       <FileName>MenuItems\MenuItem.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="TankBattle.MenuItems.PlayerProfile" Collapsed="true">
-    <Position X="16" Y="1.5" Width="1.5" />
+    <Position X="21" Y="0.5" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAAAAAAACAAACggAAAYAIQAEACEAAAAAAAAAAAAAAA=</HashCode>
+      <HashCode>AAAAAAAAgCAAACggAAAYAIQAEACEAAABAAgAAAAAAAA=</HashCode>
       <FileName>MenuItems\PlayerProfile.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="TankBattle.MenuItems.ProfileManager" Collapsed="true">
-    <Position X="17.75" Y="1.5" Width="1.5" />
+    <Position X="21" Y="1.5" Width="1.5" />
     <TypeIdentifier>
       <HashCode>ABEAQAAAIAAAACAAAAAAAAAAAAAQAADEAAAAAAAAAAA=</HashCode>
       <FileName>MenuItems\ProfileManager.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="TankBattle.Tanks.EnemySmartTank" Collapsed="true">
-    <Position X="0.75" Y="4.75" Width="1.5" />
+    <Position X="3.75" Y="4.75" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>CAQAAAAAAAAAAAAAAAAgAAAAAAAAQBACAAAAIAAAAAA=</HashCode>
+      <HashCode>CAQAAAAAAAAAAAAAAAAAAAAAAAAAQAACAAAAIAAAAAA=</HashCode>
       <FileName>Tanks\EnemySmartTank.cs</FileName>
     </TypeIdentifier>
     <Lollipop Position="0.2" />
   </Class>
   <Class Name="TankBattle.Tanks.PlayerTank" Collapsed="true">
-    <Position X="3" Y="4.75" Width="1.5" />
+    <Position X="6" Y="3.25" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAAAAggAAAIAACAAAIAAAECACAAAACAAAA=</HashCode>
+      <HashCode>AAAAAAAAAAAAAAggAAAIAACAAAIAAAECACAACACGAIA=</HashCode>
       <FileName>Tanks\PlayerTank.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="TankBattle.Tanks.Tank" Collapsed="true">
-    <Position X="2" Y="3.5" Width="1.5" />
+    <Position X="5" Y="2" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAQACAAAgIECIIBQACAAAAABAAAIAQAgAABgggAE4Ag=</HashCode>
+      <HashCode>AAQACAAAAIECIIBQACAAAAABAAAIAQAgAAAAAgAEkIg=</HashCode>
       <FileName>Tanks\Tank.cs</FileName>
     </TypeIdentifier>
     <Lollipop Position="0.2" />
   </Class>
   <Class Name="TankBattle.CannonBall" Collapsed="true">
-    <Position X="7.75" Y="3.5" Width="1.5" />
+    <Position X="1.5" Y="3.5" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>gAQACAAAAIAAIIBQAAAAAAABAAAAAQAAAABgAIAEYAA=</HashCode>
+      <HashCode>gAQACAAgAIAAIIBQAAAAAAABAAAAAQAAAABgAIAEYAA=</HashCode>
       <FileName>CannonBall.cs</FileName>
     </TypeIdentifier>
     <Lollipop Position="0.2" />
   </Class>
   <Class Name="TankBattle.SimpleCannonBall" Collapsed="true">
-    <Position X="7.75" Y="4.75" Width="1.5" />
+    <Position X="1.5" Y="4.75" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>SimpleCannonBall.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="TankBattle.ConsoleAction" Collapsed="true">
-    <Position X="12.5" Y="0.5" Width="1.5" />
+    <Position X="21" Y="3.5" Width="1.5" />
     <TypeIdentifier>
       <HashCode>CAAAAAAAAAAAAAAAAAAAAAAABAAAAAAAAAAAAABAAAg=</HashCode>
       <FileName>ConsoleAction.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="TankBattle.Engine" Collapsed="true">
-    <Position X="14.25" Y="0.5" Width="1.5" />
+    <Position X="17.5" Y="0.5" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAAEAAAAAAAAAAAEAAABAAgAAAAAAAAAAAAAAAQAAA=</HashCode>
+      <HashCode>AAAAAAgAQgAAAAAAAAAABAAgAAAAAAAAAAAAAAgQAAA=</HashCode>
       <FileName>Engine.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="TankBattle.HitManager" Collapsed="true">
-    <Position X="16" Y="0.5" Width="1.5" />
+    <Position X="17.5" Y="1.5" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAIAAAAAACBAAAAABAAAAAAEQAAAAAAAAIAAAAAAAA=</HashCode>
+      <HashCode>AAAIAAAAAACBAAAAABIAAAAAAQAAAQAAAAIAAAAAAAA=</HashCode>
       <FileName>HitManager.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="TankBattle.Level" Collapsed="true">
-    <Position X="17.75" Y="0.5" Width="1.5" />
+    <Position X="21" Y="2.5" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAIAAAAAABAIAAAACwEAAEgAAAAAAAAACAEAAA=</HashCode>
       <FileName>Level.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="TankBattle.Symbols" Collapsed="true">
-    <Position X="12.5" Y="2.5" Width="1.5" />
+    <Position X="19.25" Y="4.75" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAIAAAAQAgAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>Symbols.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="TankBattle.TankBattleMain" Collapsed="true">
-    <Position X="14.25" Y="2.5" Width="1.5" />
+    <Position X="1.5" Y="0.5" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABAAQAAA=</HashCode>
       <FileName>TankBattleMain.cs</FileName>
     </TypeIdentifier>
   </Class>
+  <Class Name="TankBattle.Tanks.EnemyTank" Collapsed="true">
+    <Position X="3.75" Y="3.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAQAAAAAAAAAAAAAAAAgAAAAAAAAABAAAAAAAAAAAAA=</HashCode>
+      <FileName>Tanks\EnemyTank.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="TankBattle.SoundEngine" Collapsed="true">
+    <Position X="17.5" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAACAQAAAACAAAAAAAgAAAAAAAAAAAAAAAEAAAAkAAA=</HashCode>
+      <FileName>SoundEngine.cs</FileName>
+    </TypeIdentifier>
+  </Class>
   <Interface Name="TankBattle.Interfaces.ICanShoot" Collapsed="true">
-    <Position X="12.5" Y="3.75" Width="1.5" />
+    <Position X="12.75" Y="3.25" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAAAAAAAAAABAAAAAAAAAAAAAAAEAAA=</HashCode>
       <FileName>Interfaces\ICanShoot.cs</FileName>
     </TypeIdentifier>
   </Interface>
   <Interface Name="TankBattle.Interfaces.IDestroyable" Collapsed="true">
-    <Position X="18" Y="4.75" Width="1.5" />
+    <Position X="8.25" Y="4.5" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAACAAAAAAAAIAQAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>Interfaces\IDestroyable.cs</FileName>
     </TypeIdentifier>
   </Interface>
   <Interface Name="TankBattle.Interfaces.IHitable" Collapsed="true">
-    <Position X="18" Y="3.75" Width="1.5" />
+    <Position X="8.25" Y="3.25" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAABAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>Interfaces\IHitable.cs</FileName>
     </TypeIdentifier>
   </Interface>
   <Interface Name="TankBattle.Interfaces.IMoveable" Collapsed="true">
-    <Position X="14.25" Y="3.75" Width="1.5" />
+    <Position X="12.75" Y="4.5" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>Interfaces\IMoveable.cs</FileName>
     </TypeIdentifier>
   </Interface>
   <Interface Name="TankBattle.Interfaces.IPrintable" Collapsed="true">
-    <Position X="16" Y="3.75" Width="1.5" />
+    <Position X="10.5" Y="3.25" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAEAAA=</HashCode>
       <FileName>Interfaces\IPrintable.cs</FileName>
     </TypeIdentifier>
   </Interface>
+  <Interface Name="TankBattle.Interfaces.IReprintable" Collapsed="true">
+    <Position X="10.5" Y="4.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Interfaces\IReprintable.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
   <Enum Name="TankBattle.Directions" Collapsed="true">
-    <Position X="12.5" Y="4.75" Width="1.5" />
+    <Position X="17.5" Y="4.75" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAIAAAAAAAAAAAAAAAAAAAAAAAAACACAAAAAAAI=</HashCode>
       <FileName>Directions.cs</FileName>

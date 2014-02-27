@@ -1,10 +1,10 @@
-1.Name:Slavi,Color:DarkGray,Scores:1-2520;2-4535;
+1.Name:Slavi,Color:DarkGray,Scores:1-2520;2-4535;3-500;
 2.Name:Gabi,Color:Blue,Scores:1-0;2-344;
-3.Name:Goshko,Color:Yellow,Scores:1-0;2-0;
-4.Name:Toko,Color:White,Scores:1-0;2-0;
-5.Name:sddsf,Color:Yellow,Scores:1-0;2-0;
-6.Name:Dani,Color:Magenta,Scores:1-0;2-0;
-7.Name:Test,Color:Green,Scores:1-0;2-0;
-8.Name:Good,Color:DarkGray,Scores:1-0;2-0;
+3.E
+4.E
+5.E
+6.E
+7.E
+8.E
 9.E
 10.E

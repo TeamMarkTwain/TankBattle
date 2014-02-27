@@ -1,9 +1,10 @@
 ﻿using System;
+using TankBattle.Interfaces;
 
 
 namespace TankBattle.LevelObjects
 {
-    class River: LevelObject
+    class River : LevelObject, IReprintable
     {
 
         private string[] visual;
@@ -34,5 +35,9 @@ namespace TankBattle.LevelObjects
             ConsoleAction.PrintOnPos(this.Visual, this.X, this.Y, this.Color, ConsoleColor.Blue);
         }
 
+        public void RePrint()
+        {
+            this.Print();
+        }
     }
 }

@@ -50,6 +50,7 @@
     <Compile Include="Interfaces\IHitable.cs" />
     <Compile Include="Interfaces\IMoveable.cs" />
     <Compile Include="Interfaces\IPrintable.cs" />
+    <Compile Include="Interfaces\IReprintable.cs" />
     <Compile Include="Level.cs" />
     <Compile Include="LevelObjects\Base.cs" />
     <Compile Include="LevelObjects\BrickWall.cs" />
@@ -80,6 +81,7 @@
   <ItemGroup>
     <Content Include="Levels\1.txt" />
     <Content Include="Levels\2.txt" />
+    <Content Include="Levels\3.txt" />
     <Content Include="Levels\NumberOfLevels.txt" />
     <Content Include="MenuItems\GameLogo.txt" />
     <Content Include="MenuItems\Profiles.txt" />

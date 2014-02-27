@@ -1,7 +1,8 @@
 ﻿using System;
+using TankBattle.Interfaces;
 namespace TankBattle.LevelObjects
 {
-    class Grass: LevelObject
+    class Grass : LevelObject, IReprintable
     {
 
         private string[] visual;
@@ -32,6 +33,11 @@ namespace TankBattle.LevelObjects
         public override void Print()
         {
             ConsoleAction.PrintOnPos(this.Visual, this.X, this.Y, this.Color);
+        }
+
+        public void RePrint()
+        {
+            this.Print();
         }
     }
 }
