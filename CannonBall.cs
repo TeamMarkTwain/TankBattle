@@ -10,8 +10,8 @@ namespace TankBattle
         private int speed;
         private int shootPower;
         private char visual;
-        //private bool is
-        public CannonBall(int x, int y, int speed, int shootPower, Directions direction)
+        private bool isFiredFromPlayer;
+        public CannonBall(int x, int y, int speed, int shootPower, Directions direction, bool firedFromPlayer)
         {
             this.x = x;
             this.y = y;
@@ -19,6 +19,7 @@ namespace TankBattle
             this.shootPower = shootPower;
             this.direction = direction;
             this.visual = 'O';
+            this.isFiredFromPlayer = firedFromPlayer;
         }
 
         protected char Visual
@@ -32,6 +33,8 @@ namespace TankBattle
         public int Y { get { return this.y; } }
 
         public int Speed { get { return this.speed; } }
+
+        public bool IsFiredFromPlayer { get { return this.isFiredFromPlayer; } }
 
         public int ShootPower { 
             get { return this.shootPower; }

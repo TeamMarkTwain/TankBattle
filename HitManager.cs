@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
-using System.Threading.Tasks;
+using TankBattle.MenuItems;
 using TankBattle.Interfaces;
 using TankBattle.LevelObjects;
 using TankBattle.Tanks;
@@ -106,7 +106,7 @@ namespace TankBattle
             return true;
         }
 
-        public static void ManageShotsAndLevelObject(List<CannonBall> shots, List<LevelObject> targets)
+        public static void ManageShotsAndLevelObject(List<CannonBall> shots, List<LevelObject> targets, PlayerProfile player)
         {
             foreach (var shot in shots)
             {
@@ -114,6 +114,7 @@ namespace TankBattle
                 {
                     if (IsShotPositionEqualLevelObject(shot, target))
                     {
+                        
                         SoundEngine.HitSound();
                         if (target is IDestroyable)
                         {
@@ -126,6 +127,33 @@ namespace TankBattle
                         else if (target is IHitable)
                         {
                             shot.LooseHealth(shot.ShootPower);
+                        }
+
+                        if (shot.IsFiredFromPlayer)
+                        {
+                            player.AddScore(5);
+
+                            if (target as EnemyTank != null)
+                            {
+                                if ((target as EnemyTank).IsDestroyed)
+	                            {
+                                    player.AddScore(100);
+	                            }
+                            }
+                            else if (target as BrickWall != null)
+                            {
+                                if ((target as BrickWall).IsDestroyed)
+	                            {
+                                    player.AddScore(25);
+	                            }
+                            }
+                            else if (target as SteelWall != null)
+                            {
+                                if ((target as SteelWall).IsDestroyed)
+                                {
+                                    player.AddScore(40);
+                                }
+                            }
                         }
                     }
                 }

@@ -1,4 +1,4 @@
-1.Name:Slavi,Color:DarkGray,Scores:1-242;2-0;
+1.Name:Slavi,Color:DarkGray,Scores:1-2520;2-4535;
 2.Name:Gabi,Color:Blue,Scores:1-0;2-344;
 3.Name:Goshko,Color:Yellow,Scores:1-0;2-0;
 4.Name:Toko,Color:White,Scores:1-0;2-0;

@@ -62,5 +62,10 @@ namespace TankBattle.MenuItems
             }
         }
 
+        public void ResetCurrentScore()
+        {
+            this.currentScore = 0;
+        }
+
     }
 }

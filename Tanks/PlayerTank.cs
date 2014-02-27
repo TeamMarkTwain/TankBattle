@@ -31,12 +31,18 @@ namespace TankBattle.Tanks
 
         public int TanksDestroyed { get { return this.tanksDestroyed; } }
 
-        public void SetDefaultValues()
+        public void SetDefaultPosition()
         {
             this.X = 25;
             this.Y = 38;
             ReSetHealth();
             this.Direction = Directions.Up;
+        }
+
+        public void SetDefaultValues()
+        {
+            this.SetDefaultPosition();
+            this.lives = 5;
         }
         public void LooseLive()
         {

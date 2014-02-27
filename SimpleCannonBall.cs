@@ -8,8 +8,8 @@ namespace TankBattle
 {
     class SimpleCannonBall : CannonBall
     {
-        public SimpleCannonBall (int x, int y, int speed, int shootPower, Directions direction, char visual = 'O')
-            : base(x, y, speed, shootPower, direction)
+        public SimpleCannonBall (int x, int y, int speed, int shootPower, Directions direction, bool firedFromPlayer, char visual = 'O')
+            : base(x, y, speed, shootPower, direction, firedFromPlayer)
         {
             this.Visual = visual;
         }

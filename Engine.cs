@@ -2,8 +2,6 @@
 using System.Collections.Generic;
 using System.Linq;
 using TankBattle.Tanks;
-using System.Text;
-using System.Threading.Tasks;
 using System.Threading;
 using TankBattle.LevelObjects;
 using TankBattle.Interfaces;
@@ -13,11 +11,14 @@ namespace TankBattle
 {
     public static class Engine
     {
-        private static bool[,] fieldObjects = new bool[Level.PlaygroundHeight(), Level.PlaygroundWidth()];
-
+        private const int gamerLives = 5;
         public static void StartGame(int level, PlayerProfile player)
         {
             DateTime timeGameStart = DateTime.Now;
+            //To use it for add score for every play time minute
+            int passedMinutes = 1;
+            int waves = 1 + level;
+            int lives = gamerLives;
 
             Level currentLevel = new Level(level);
             List<CannonBall> cannonBalls = new List<CannonBall>();
@@ -76,7 +77,7 @@ namespace TankBattle
                         //implement fire
                         SoundEngine.FireSound();
                         int[] barrelCoords = playerTank.GetTankBarrel();
-                        cannonBalls.Add(new SimpleCannonBall(playerTank.Y + barrelCoords[0], playerTank.X + barrelCoords[1], 1, 100, playerTank.Direction));
+                        cannonBalls.Add(new SimpleCannonBall(playerTank.Y + barrelCoords[0], playerTank.X + barrelCoords[1], 1, 100, playerTank.Direction, true));
                     }
                     else if (pressedKey.Key == ConsoleKey.Escape)
                     {
@@ -96,14 +97,24 @@ namespace TankBattle
 
                         if (currentPlayerTank.IsDestroyed)
                         {
+                            lives--;
                             currentPlayerTank.LooseLive();
-                            currentPlayerTank.SetDefaultValues();
+
+                            //clear position
+                            if (currentPlayerTank.Direction == Directions.Up || currentPlayerTank.Direction == Directions.Down)
+                            {
+                                ConsoleAction.Clear(playerTank.X, playerTank.Y, 6, 2);
+                            }
+                            else if (currentPlayerTank.Direction == Directions.Left || currentPlayerTank.Direction == Directions.Right)
+                            {
+                                ConsoleAction.Clear(playerTank.X, playerTank.Y, 3, 3);
+                            }
+                            currentPlayerTank.SetDefaultPosition();
                             currentPlayerTank.Print();
                             
 
                             if (currentPlayerTank.IsGameOver)
                             {
-                                // What to do if player tank is dead ?
                                 EndGame(player, currentLevel.LevelNumber);
                             }
                             continue;
@@ -116,7 +127,7 @@ namespace TankBattle
                         if (currentEnemyTank.CanShootToPlayertank())
                         {
                             int[] barrelCoords = (allLevelObjects[i] as EnemySmartTank).GetTankBarrel();
-                            cannonBalls.Add(new SimpleCannonBall(allLevelObjects[i].Y + barrelCoords[0], allLevelObjects[i].X + barrelCoords[1], 1, 100, currentEnemyTank.Direction));
+                            cannonBalls.Add(new SimpleCannonBall(allLevelObjects[i].Y + barrelCoords[0], allLevelObjects[i].X + barrelCoords[1], 1, 100, currentEnemyTank.Direction, false));
                         }
 
                         currentEnemyTank.Update();
@@ -152,7 +163,7 @@ namespace TankBattle
                 }
 
                 // Check if some cannonball hit an object
-                HitManager.ManageShotsAndLevelObject(cannonBalls, allLevelObjects);
+                HitManager.ManageShotsAndLevelObject(cannonBalls, allLevelObjects, player);
 
                 // Remove destroyed cannonballs
                 for (int i = 0; i < cannonBalls.Count; i++)
@@ -163,22 +174,42 @@ namespace TankBattle
                         cannonBalls.RemoveAt(i);
                     }
                 }
-
+                //Destroy enemies
                 if (!allLevelObjects.Any(x => x is EnemyTank))
                 {
-                    return;
+                    waves--;
+                    if (waves == 0)
+                    {
+                        player.AddScore(500);
+                        WinGame(player, currentLevel.LevelNumber);
+                    }
+                    else
+                    {
+                        for (int i = 0; i < enemyTanksCount; i++)
+                        {
+                            allLevelObjects.Add(new EnemySmartTank(playerTank, allLevelObjects, enemyTankPosition, 1, Directions.Down));
+                            enemyTankPosition += 15;
+                        }
+                    }
                 }
 
-                player.AddScore(2); //for surviving time 
-                PrintStats(player, playerTank);
+                //Add score point for playing minute
+                if (DateTime.Now.Minute == timeGameStart.AddMinutes(passedMinutes).Minute)
+                {
+                    passedMinutes++;
+                    player.AddScore(10);
+
+                }
+                
+                PrintStats(player, lives);
             }
         }
 
-        private static void PrintStats(PlayerProfile player, PlayerTank tank)  //stack overflow problem !!!!
+        private static void PrintStats(PlayerProfile player, int lives)  //stack overflow problem !!!!
         {
             ConsoleAction.PrintOnPos(string.Format("Name: {0}", player.Name), 10, 42, ConsoleColor.Cyan);
-            //ConsoleAction.PrintOnPos(string.Format("Lives: {0}", tank.Lives), 19 + player.Name.Length, 42, ConsoleColor.Cyan);
-            ConsoleAction.PrintOnPos(string.Format("Score: {0}", player.CurrentScore), 25 + player.Name.Length, 42, ConsoleColor.Cyan);
+            ConsoleAction.PrintOnPos(string.Format("Lives: {0}", lives), 19 + player.Name.Length, 42, ConsoleColor.Cyan);
+            ConsoleAction.PrintOnPos(string.Format("Score: {0}", player.CurrentScore), 29 + player.Name.Length, 42, ConsoleColor.Cyan);
         }
 
         private static void EndGame(PlayerProfile player, int levelNumber) 
@@ -188,13 +219,72 @@ namespace TankBattle
 
             ConsoleAction.PrintOnPos("GAME OVER !!!", 35, 20, ConsoleColor.Red);
             ConsoleAction.PrintOnPos(string.Format("Your Score: {0} points",player.CurrentScore ), 35, 24, ConsoleColor.Green);
-            ConsoleAction.PrintOnPos("Press any key to continue", 35, 28, ConsoleColor.White);
-            Console.ReadKey();
+            ConsoleAction.PrintOnPos("Press Esc or Enter key to continue", 35, 28, ConsoleColor.White);
 
             player.SetScore(player.CurrentScore, (byte)levelNumber);
             ProfileManager.WriteToFile(player);
+            SetDefaults(player);
 
-            Menu.LoadMainMenu(player);
+            while (true)
+            {
+                if (Console.KeyAvailable)
+                {
+                    ConsoleKeyInfo pressedKey = Console.ReadKey(true);
+
+                    if (pressedKey.Key == ConsoleKey.Escape || pressedKey.Key == ConsoleKey.Enter)
+                    {
+                        Console.Clear();
+                        Menu.LoadMainMenu(player);
+                    }
+                }
+            }
+            
+        }
+
+        private static void WinGame(PlayerProfile player, int levelNumber)
+        {
+            Console.Clear();
+            SoundEngine.StartGameSound();
+            player.SetScore(player.CurrentScore, (byte)levelNumber);
+            ProfileManager.WriteToFile(player);
+
+            ConsoleAction.PrintOnPos("YOU WIN !!!", 35, 20, ConsoleColor.Green);
+            ConsoleAction.PrintOnPos(string.Format("Your Score: {0} points", player.CurrentScore), 35, 24, ConsoleColor.Green);
+
+            SetDefaults(player);
+
+            ConsoleAction.PrintOnPos("Press Esc to go back to the main menu", 35, 28, ConsoleColor.White);
+
+            if (levelNumber < Level.NumberOfLevels())
+            {
+                ConsoleAction.PrintOnPos("Press Enter for the next level", 35, 32, ConsoleColor.White);
+            }
+
+            while (true)
+            {
+                if (Console.KeyAvailable)
+                {
+                    ConsoleKeyInfo pressedKey = Console.ReadKey(true);
+
+                    if (pressedKey.Key == ConsoleKey.Escape)
+                    {
+                        Console.Clear();
+                        Menu.LoadMainMenu(player);
+                    }
+                    else if (pressedKey.Key == ConsoleKey.Enter)
+                    {
+                        Console.Clear();
+                        StartGame(levelNumber + 1, player);
+                    }
+                }
+            }
+
+        }
+
+        private static void SetDefaults(PlayerProfile profile)
+        {
+            profile.PersonalTank.SetDefaultValues();
+            profile.ResetCurrentScore();
         }
     }
 }
